@@ -10,6 +10,13 @@ import logo from "./assets/logo.png";
 function App() {
   const { t } = useTranslation();
 
+  // Стили для навигационных кнопок
+  const navButtonStyle = {
+    "&:hover": {
+      color: "#6bbdca",
+    },
+  };
+
   return (
     <Router>
       <Box position="static" color="default">
@@ -22,19 +29,30 @@ function App() {
           <Button component={Link} to="/" color="inherit">
             <Box component="img" src={logo} alt="Logo" sx={{ height: 110 }} />
           </Button>
+
           <Box
             sx={{
               display: "flex",
               gap: 4,
             }}
           >
-            <Button component={Link} to="/" color="inherit">
+            <Button component={Link} to="/" color="inherit" sx={navButtonStyle}>
               {t("nav.about")}
             </Button>
-            <Button component={Link} to="/team" color="inherit">
+            <Button
+              component={Link}
+              to="/team"
+              color="inherit"
+              sx={navButtonStyle}
+            >
               {t("nav.team")}
             </Button>
-            <Button component={Link} to="/contact" color="inherit">
+            <Button
+              component={Link}
+              to="/contact"
+              color="inherit"
+              sx={navButtonStyle}
+            >
               {t("nav.contacts")}
             </Button>
           </Box>
