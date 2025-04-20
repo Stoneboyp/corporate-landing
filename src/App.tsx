@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { Container, AppBar, Toolbar, Button, Box } from "@mui/material";
+import { Container, Toolbar, Button, Box } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import AboutPage from "./pages/AboutPage/AboutPage";
 import TeamPage from "./pages/TeamPage/TeamPage";
