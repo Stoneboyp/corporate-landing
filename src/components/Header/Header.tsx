@@ -14,12 +14,12 @@ const Header = () => {
     <Box position="static" color="default" bgcolor="white">
       <Toolbar
         sx={{
-          justifyContent: "space-between",
+          justifyContent: "space-around",
           alignItems: "center",
         }}
       >
         <Button component={Link} to="/" color="inherit">
-          <Box component="img" src={logo} alt="Logo" sx={{ height: 110 }} />
+          <Box component="img" src={logo} alt="Logo" sx={{ height: 80 }} />
         </Button>
 
         <Box
