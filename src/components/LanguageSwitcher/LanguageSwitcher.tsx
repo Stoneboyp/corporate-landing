@@ -1,26 +1,71 @@
-import { Button, ButtonGroup } from "@mui/material";
+// components/LanguageSwitcher.tsx
 import { useTranslation } from "react-i18next";
+import { Button, Menu, MenuItem } from "@mui/material";
+import { useState } from "react";
 
-const languages = [
-  { code: "ru", label: "Рус" },
-  { code: "en", label: "Eng" },
-  { code: "kz", label: "Қаз" },
-];
-
-export default function LanguageSwitcher() {
+const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+
+  const currentLang = i18n.language;
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = (lang?: string) => {
+    if (lang && lang !== currentLang) {
+      i18n.changeLanguage(lang);
+    }
+    setAnchorEl(null);
+  };
 
   return (
-    <ButtonGroup size="small" variant="outlined">
-      {languages.map(({ code, label }) => (
-        <Button
-          key={code}
-          onClick={() => i18n.changeLanguage(code)}
-          variant={i18n.language === code ? "contained" : "outlined"}
-        >
-          {label}
-        </Button>
-      ))}
-    </ButtonGroup>
+    <>
+      <Button
+        onClick={handleClick}
+        sx={{
+          minWidth: 40,
+          fontWeight: "medium",
+          textTransform: "uppercase",
+          fontSize: 14,
+          color: "text.primary",
+          "&:hover": {
+            backgroundColor: "transparent",
+          },
+        }}
+      >
+        {currentLang}
+      </Button>
+      <Menu
+        anchorEl={anchorEl}
+        open={open}
+        onClose={() => handleClose()}
+        MenuListProps={{
+          onMouseLeave: () => handleClose(),
+        }}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "left",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "left",
+        }}
+        sx={{ mt: 1 }}
+      >
+        {["ru", "kz", "en"].map(
+          (lang) =>
+            lang !== currentLang && (
+              <MenuItem key={lang} onClick={() => handleClose(lang)}>
+                {lang.toUpperCase()}
+              </MenuItem>
+            )
+        )}
+      </Menu>
+    </>
   );
-}
+};
+
+export default LanguageSwitcher;

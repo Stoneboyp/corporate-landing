@@ -8,16 +8,21 @@ export default function Footer() {
         maxWidth="lg"
         sx={{
           display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
           flexDirection: { xs: "column", sm: "row" },
+          justifyContent: "center",
+          alignItems: "center",
           gap: 2,
+          position: "relative",
         }}
       >
-        <Typography variant="body2" color="text.secondary">
-          © 2025 Caspian Consulting. Все права защищены.
-        </Typography>
-        <Box>
+        <Box
+          sx={{
+            position: { sm: "absolute" },
+            left: { sm: 0 },
+            display: "flex",
+            gap: 1,
+          }}
+        >
           <IconButton
             component="a"
             href="https://wa.me/1234"
@@ -44,6 +49,10 @@ export default function Footer() {
             <Telegram sx={{ color: "#229ED9" }} />
           </IconButton>
         </Box>
+
+        <Typography variant="body2" color="text.secondary" align="center">
+          © 2025 Caspian Consulting. Все права защищены.
+        </Typography>
       </Container>
     </Box>
   );
