@@ -84,6 +84,10 @@ const TeamSection = () => {
                         height: "110%",
                         objectFit: "cover",
                         objectPosition: "center",
+                        transition: "transform 0.4s ease-in-out",
+                        "&:hover": {
+                          transform: "scale(1.05)",
+                        },
                       }}
                     />
                   ) : (

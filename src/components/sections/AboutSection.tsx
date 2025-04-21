@@ -12,7 +12,10 @@ import { t } from "i18next";
 
 const AboutSection = () => {
   return (
-    <Box component="section" sx={{ py: 10, bgcolor: "grey.50" }}>
+    <Box
+      component="section"
+      sx={{ py: 10, bgcolor: "grey.50", borderRadius: "4px" }}
+    >
       <Container maxWidth="md">
         <Typography
           variant="h4"
@@ -22,7 +25,7 @@ const AboutSection = () => {
           {t("about.title")}
         </Typography>
 
-        <Paper elevation={0} sx={{ p: 3, mb: 4 }}>
+        <Paper elevation={1} sx={{ p: 3, mb: 4 }}>
           <Typography variant="body1" paragraph>
             {t("about.history")}
           </Typography>
@@ -31,7 +34,7 @@ const AboutSection = () => {
           </Typography>
         </Paper>
 
-        <Paper elevation={0} sx={{ p: 3, mb: 4, bgcolor: "white" }}>
+        <Paper elevation={1} sx={{ p: 3, mb: 4, bgcolor: "white" }}>
           <Typography variant="h6" sx={{ mb: 2 }}>
             {t("about.profile")}
           </Typography>
