@@ -6,11 +6,11 @@ import TeamPage from "./pages/TeamPage/TeamPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import LanguageSwitcher from "./components/LanguageSwitcher/LanguageSwitcher";
 import logo from "./assets/logo.png";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const { t } = useTranslation();
 
-  // Стили для навигационных кнопок
   const navButtonStyle = {
     "&:hover": {
       color: "#6bbdca",
@@ -70,6 +70,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </Container>
+      <Footer></Footer>
     </Router>
   );
 }

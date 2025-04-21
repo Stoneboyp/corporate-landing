@@ -8,7 +8,6 @@ import {
   ListItemText,
   Paper,
 } from "@mui/material";
-import { Gavel, Balance, Security } from "@mui/icons-material";
 import { t } from "i18next";
 
 const AboutSection = () => {
@@ -38,21 +37,12 @@ const AboutSection = () => {
           </Typography>
           <List>
             <ListItem>
-              <ListItemIcon>
-                <Gavel color="primary" />
-              </ListItemIcon>
               <ListItemText primary={t("about.specializations.civil")} />
             </ListItem>
             <ListItem>
-              <ListItemIcon>
-                <Balance color="primary" />
-              </ListItemIcon>
               <ListItemText primary={t("about.specializations.tax")} />
             </ListItem>
             <ListItem>
-              <ListItemIcon>
-                <Security color="primary" />
-              </ListItemIcon>
               <ListItemText
                 primary={t("about.specializations.anticorruption")}
               />
