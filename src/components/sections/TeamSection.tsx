@@ -57,7 +57,10 @@ const TeamMemberCard = ({ member }: { member: any }) => {
         </Typography>
         {member.bio?.split("\n\n").map((paragraph: string, idx: number) => (
           <Typography
-            sx={{ whiteSpace: "pre-line" }}
+            sx={{
+              whiteSpace: "pre-line",
+              textAlign: "justify", // Добавлено выравнивание по ширине
+            }}
             key={idx}
             variant="body2"
             paragraph
