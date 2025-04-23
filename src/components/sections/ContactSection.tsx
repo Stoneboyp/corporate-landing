@@ -1,20 +1,30 @@
 import { Paper } from "@mui/material";
 import Map from "../Map/Map";
+import { useTranslation } from "react-i18next";
 
 const ContactSection = () => {
+  const { t } = useTranslation();
+
   return (
     <Paper elevation={1} sx={{ p: 3, mb: 4 }}>
       <section className="contact-section">
-        <h1>Контакты:</h1>
+        <h1>{t("contacts.title")}</h1>
         <p>
-          Адрес:{" "}
-          <span>адрес г. Астана, р-н Есиль, ул. Әлихан Бөкейхан, 6 - 238</span>
+          {t("contacts.address")}{" "}
+          <a
+            href="https://go.2gis.com/xSBkb"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none", color: "#004b87" }}
+          >
+            {t("contacts.addressDetail")}
+          </a>
         </p>
         <p>
-          Телефон: <span>+7 777 210 4820</span>
+          {t("contacts.phone")}: <span>+7 777 210 4820</span>
         </p>
         <p>
-          Email: <span>info@caspianconsult.kz</span>
+          {t("contacts.email")}: <span>info@caspianconsult.kz</span>
         </p>
       </section>
       <Map />

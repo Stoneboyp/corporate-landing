@@ -59,20 +59,13 @@
       }
     }
   },
-  "contacts": {
-    "title": "Контакты",
-    "form": {
-      "name": "Имя",
-      "email": "Электронная почта",
-      "message": "Сообщение",
-      "submit": "Отправить"
-    },
-    "info": {
-      "address": "Адрес",
+    "contacts": {
+      "title": "Контакты",
+      "address": "Адрес:",
+      "addressDetail": "г. Астана, р-н Есиль, ул. Әлихан Бөкейхан, 6 - 238",
       "phone": "Телефон",
-      "email": "Электронная почта"
-    }
-  },
+      "email": "Email"
+    },
     "copyright": "© 2025 Caspian Consulting. Все права защищены."
   
 }

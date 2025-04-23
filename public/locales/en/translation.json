@@ -60,18 +60,11 @@
     }
   },
   "contacts": {
-    "title": "Contacts",
-    "form": {
-      "name": "Name",
-      "email": "Email",
-      "message": "Message",
-      "submit": "Submit"
-    },
-    "info": {
-      "address": "Address",
-      "phone": "Phone",
-      "email": "Email"
-    }
+    "title": "Contact Us",
+    "address": "Address:",
+    "addressDetail": "Astana, Esil district, Alikhan Bukeikhan St. 6 - 238",
+    "phone": "Phone",
+    "email": "Email"
   },
-    "copyright": "© 2025 Caspian Consulting. All rights reserved."
+  "copyright": "© 2025 Caspian Consulting. All rights reserved."
 }
