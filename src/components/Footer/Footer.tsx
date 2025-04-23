@@ -1,5 +1,5 @@
 import { Box, Container, IconButton, Typography } from "@mui/material";
-import { Email, Telegram, WhatsApp } from "@mui/icons-material";
+import { Email, WhatsApp } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 
 export default function Footer() {
@@ -41,15 +41,6 @@ export default function Footer() {
             aria-label="Email"
           >
             <Email color="action" />
-          </IconButton>
-          <IconButton
-            component="a"
-            href="https://t.me/yourusername"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Telegram"
-          >
-            <Telegram sx={{ color: "#229ED9" }} />
           </IconButton>
         </Box>
 

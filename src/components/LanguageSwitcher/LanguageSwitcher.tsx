@@ -39,6 +39,7 @@ const LanguageSwitcher = () => {
         {currentLang}
       </Button>
       <Menu
+        disablePortal
         anchorEl={anchorEl}
         open={open}
         onClose={() => handleClose()}

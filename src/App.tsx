@@ -6,21 +6,34 @@ import ContactPage from "./pages/ContactPage/ContactPage";
 import Footer from "./components/Footer/Footer";
 import FloatingWhatsAppButton from "./components/FloatingContactButton/FloatingContactButton";
 import Header from "./components/Header/Header";
-
 function App() {
   return (
     <Router>
       <Header />
-      <Box
-        sx={{
-          backgroundImage: `url("/img/landing/1.png")`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          minHeight: "100vh",
-        }}
-      >
-        <Container sx={{ py: 4 }}>
+      <Box sx={{ position: "relative", minHeight: "100vh" }}>
+        <Box
+          sx={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundImage: `url("/img/landing/1.jpg")`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            zIndex: -1,
+            opacity: 0.6,
+          }}
+        />
+        <Container
+          sx={{
+            py: 4,
+            minHeight: "calc(100vh - 180px)",
+            position: "relative",
+            zIndex: 1,
+          }}
+        >
           <Routes>
             <Route path="/" element={<AboutPage />} />
             <Route path="/team" element={<TeamPage />} />

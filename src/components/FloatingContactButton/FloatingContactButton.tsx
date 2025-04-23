@@ -1,11 +1,5 @@
 import { Fab, Zoom, Box, IconButton, Tooltip } from "@mui/material";
-import {
-  WhatsApp,
-  Email,
-  Telegram,
-  Phone,
-  ContactSupport,
-} from "@mui/icons-material";
+import { WhatsApp, Email, Phone, ContactSupport } from "@mui/icons-material";
 import { useState } from "react";
 
 export default function FloatingContactButton() {
@@ -15,22 +9,17 @@ export default function FloatingContactButton() {
     {
       icon: <Phone />,
       label: "Позвонить",
-      href: "tel:+77001234567",
+      href: "tel:+77772104820",
     },
     {
       icon: <Email />,
       label: "Email",
-      href: "mailto:info@caspianconsulting.kz",
+      href: "mailto:info@caspianconsult.kz",
     },
     {
       icon: <WhatsApp />,
       label: "WhatsApp",
-      href: "https://wa.me/77001234567",
-    },
-    {
-      icon: <Telegram sx={{ color: "#229ED9" }} />,
-      label: "Telegram",
-      href: "https://t.me/yourusername",
+      href: "https://wa.me/+77772104820",
     },
   ];
 

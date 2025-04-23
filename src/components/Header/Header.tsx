@@ -53,9 +53,9 @@ const Header = () => {
           </Button>
         </Box>
 
-        <div>
+        <Box>
           <LanguageSwitcher />
-        </div>
+        </Box>
       </Toolbar>
     </Box>
   );
