@@ -4,17 +4,18 @@ import {
   Container,
   List,
   ListItem,
-  ListItemIcon,
   ListItemText,
   Paper,
 } from "@mui/material";
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
 const AboutSection = () => {
+  const { t } = useTranslation(); // ✅ Используем хук
+
   return (
     <Box
       component="section"
-      sx={{ py: 10, bgcolor: "grey.50", borderRadius: "4px" }}
+      sx={{ py: 10, bgcolor: "rgba(245, 245, 245, 0.5)", borderRadius: "4px" }}
     >
       <Container maxWidth="md">
         <Typography

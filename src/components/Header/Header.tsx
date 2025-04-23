@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Box, Toolbar, Button } from "@mui/material";
 import { t } from "i18next";
 import { Link } from "react-router-dom";
@@ -5,11 +6,14 @@ import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import logo from "@/assets/logo.png";
 
 const Header = () => {
+  const { i18n } = useTranslation();
+
   const navButtonStyle = {
     "&:hover": {
       color: "#6bbdca",
     },
   };
+
   return (
     <Box position="static" color="default" bgcolor="white">
       <Toolbar

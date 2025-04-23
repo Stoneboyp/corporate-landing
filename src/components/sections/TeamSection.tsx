@@ -1,17 +1,87 @@
-import { useState } from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
+import { useEffect, useState } from "react";
+import { Card, CardContent, Box, Typography, Container } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import PersonIcon from "@mui/icons-material/Person";
 
+// 👤 Компонент отдельной карточки участника команды
+const TeamMemberCard = ({ member }: { member: any }) => {
+  const [imgError, setImgError] = useState(false);
+
+  return (
+    <Card
+      sx={{
+        borderRadius: 4,
+        boxShadow: 1,
+        transition: "box-shadow 0.3s",
+        "&:hover": { boxShadow: 4 },
+      }}
+    >
+      <Box
+        sx={{
+          width: "100%",
+          height: 500,
+          overflow: "hidden",
+          borderTopLeftRadius: 16,
+          borderTopRightRadius: 16,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          bgcolor: "#f5f5f5",
+        }}
+      >
+        {!imgError && member.photo ? (
+          <Box
+            component="img"
+            src={member.photo}
+            alt={member.name}
+            onError={() => setImgError(true)}
+            sx={{
+              width: "auto",
+              height: "110%",
+              objectFit: "cover",
+              objectPosition: "center",
+              transition: "transform 0.4s ease-in-out",
+              "&:hover": { transform: "scale(1.05)" },
+            }}
+          />
+        ) : (
+          <PersonIcon sx={{ fontSize: 120, color: "grey.500" }} />
+        )}
+      </Box>
+      <CardContent sx={{ p: 3 }}>
+        <Typography variant="h6" sx={{ mb: 1 }}>
+          {member.name}
+        </Typography>
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+          {member.position}
+        </Typography>
+        {member.bio?.split("\n\n").map((paragraph: string, idx: number) => (
+          <Typography
+            sx={{ whiteSpace: "pre-line" }}
+            key={idx}
+            variant="body2"
+            paragraph
+          >
+            {paragraph}
+          </Typography>
+        ))}
+      </CardContent>
+    </Card>
+  );
+};
+
+// 👥 Компонент секции команды
 const TeamSection = () => {
-  const { t } = useTranslation();
-  const members = Object.entries(
-    t("team.members", { returnObjects: true })
-  ) as [string, any][];
+  const { t, i18n } = useTranslation();
+  const [members, setMembers] = useState<{ [key: string]: any }>({});
+
+  useEffect(() => {
+    // Загружаем переведённый список участников при смене языка
+    const teamData = t("team.members", { returnObjects: true }) as {
+      [key: string]: any;
+    };
+    setMembers(teamData);
+  }, [t, i18n.language]);
 
   return (
     <Box
@@ -44,72 +114,9 @@ const TeamSection = () => {
             gap: 3,
           }}
         >
-          {members.map(([key, member]) => {
-            const [imgError, setImgError] = useState(false);
-
-            return (
-              <Card
-                key={key}
-                sx={{
-                  borderRadius: 4,
-                  boxShadow: 1,
-                  transition: "box-shadow 0.3s",
-                  "&:hover": {
-                    boxShadow: 4,
-                  },
-                }}
-              >
-                <Box
-                  sx={{
-                    width: "100%",
-                    height: 500,
-                    overflow: "hidden",
-                    borderTopLeftRadius: 16,
-                    borderTopRightRadius: 16,
-                    position: "relative",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    bgcolor: "#f5f5f5",
-                  }}
-                >
-                  {!imgError && member.photo ? (
-                    <Box
-                      component="img"
-                      src={member.photo}
-                      alt={member.name}
-                      onError={() => setImgError(true)}
-                      sx={{
-                        width: "auto",
-                        height: "110%",
-                        objectFit: "cover",
-                        objectPosition: "center",
-                        transition: "transform 0.4s ease-in-out",
-                        "&:hover": {
-                          transform: "scale(1.05)",
-                        },
-                      }}
-                    />
-                  ) : (
-                    <PersonIcon sx={{ fontSize: 120, color: "grey.500" }} />
-                  )}
-                </Box>
-                <CardContent sx={{ p: 3 }}>
-                  <Typography variant="h6" sx={{ mb: 1 }}>
-                    {member.name}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    sx={{ mb: 1 }}
-                  >
-                    {member.position}
-                  </Typography>
-                  <Typography variant="body2">{member.bio}</Typography>
-                </CardContent>
-              </Card>
-            );
-          })}
+          {Object.entries(members).map(([key, member]) => (
+            <TeamMemberCard key={key} member={member} />
+          ))}
         </Box>
       </Container>
     </Box>

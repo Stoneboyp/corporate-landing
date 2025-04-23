@@ -1,5 +1,5 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { Container, Toolbar, Button, Box } from "@mui/material";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Container, Box } from "@mui/material";
 import AboutPage from "./pages/AboutPage/AboutPage";
 import TeamPage from "./pages/TeamPage/TeamPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
@@ -11,13 +11,23 @@ function App() {
   return (
     <Router>
       <Header />
-      <Container sx={{ marginTop: 4 }}>
-        <Routes>
-          <Route path="/" element={<AboutPage />} />
-          <Route path="/team" element={<TeamPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
-      </Container>
+      <Box
+        sx={{
+          backgroundImage: `url("/img/landing/1.png")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          minHeight: "100vh",
+        }}
+      >
+        <Container sx={{ py: 4 }}>
+          <Routes>
+            <Route path="/" element={<AboutPage />} />
+            <Route path="/team" element={<TeamPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </Container>
+      </Box>
       <Footer />
       <FloatingWhatsAppButton />
     </Router>

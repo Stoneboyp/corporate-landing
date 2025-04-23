@@ -1,7 +1,10 @@
 import { Box, Container, IconButton, Typography } from "@mui/material";
 import { Email, Telegram, WhatsApp } from "@mui/icons-material";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <Box component="footer" sx={{ bgcolor: "#f5f5f5", py: 4, mt: "auto" }}>
       <Container
@@ -51,7 +54,7 @@ export default function Footer() {
         </Box>
 
         <Typography variant="body2" color="text.secondary" align="center">
-          © 2025 Caspian Consulting. Все права защищены.
+          {t("copyright")}
         </Typography>
       </Container>
     </Box>
