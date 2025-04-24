@@ -3,7 +3,6 @@ import { Card, CardContent, Box, Typography, Container } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import PersonIcon from "@mui/icons-material/Person";
 
-// 👤 Компонент отдельной карточки участника команды
 const TeamMemberCard = ({ member }: { member: any }) => {
   const [imgError, setImgError] = useState(false);
 
@@ -59,7 +58,7 @@ const TeamMemberCard = ({ member }: { member: any }) => {
           <Typography
             sx={{
               whiteSpace: "pre-line",
-              textAlign: "justify", // Добавлено выравнивание по ширине
+              textAlign: "justify",
             }}
             key={idx}
             variant="body2"
@@ -73,13 +72,11 @@ const TeamMemberCard = ({ member }: { member: any }) => {
   );
 };
 
-// 👥 Компонент секции команды
 const TeamSection = () => {
   const { t, i18n } = useTranslation();
   const [members, setMembers] = useState<{ [key: string]: any }>({});
 
   useEffect(() => {
-    // Загружаем переведённый список участников при смене языка
     const teamData = t("team.members", { returnObjects: true }) as {
       [key: string]: any;
     };

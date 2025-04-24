@@ -10,7 +10,7 @@ import {
 import { useTranslation } from "react-i18next";
 
 const AboutSection = () => {
-  const { t } = useTranslation(); // ✅ Используем хук
+  const { t } = useTranslation();
 
   return (
     <Box

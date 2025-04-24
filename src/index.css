@@ -8,15 +8,16 @@
   -moz-osx-font-smoothing: grayscale;
   margin: 0 auto;
 }
-
+html{
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
 a {
   font-weight: 500;
   color: #004b87;
   text-decoration: none;
 }
-html {
-  overflow-y: scroll;
-}
+
 a:hover {
   color: #003366;
 }

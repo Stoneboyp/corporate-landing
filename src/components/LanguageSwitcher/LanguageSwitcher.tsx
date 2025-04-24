@@ -1,32 +1,14 @@
+// components/LanguageSwitcher.tsx
 import { useTranslation } from "react-i18next";
 import { Button, Menu, MenuItem } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+
   const currentLang = i18n.language;
-
-  // Управляем стилями при открытии/закрытии меню
-  useEffect(() => {
-    if (open) {
-      // Зафиксировать ширину окна, чтобы избежать изменений разметки
-      const scrollBarWidth =
-        window.innerWidth - document.documentElement.clientWidth;
-      document.body.style.overflow = "hidden"; // Убираем прокрутку
-      document.body.style.paddingRight = `${scrollBarWidth}px`; // Компенсируем ширину полосы прокрутки
-    } else {
-      document.body.style.overflow = "auto"; // Восстанавливаем прокрутку
-      document.body.style.paddingRight = "0"; // Убираем компенсацию
-    }
-
-    // Очистка при размонтировании компонента
-    return () => {
-      document.body.style.overflow = "auto";
-      document.body.style.paddingRight = "0";
-    };
-  }, [open]);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -57,7 +39,7 @@ const LanguageSwitcher = () => {
         {currentLang}
       </Button>
       <Menu
-        disablePortal
+        disableScrollLock
         anchorEl={anchorEl}
         open={open}
         onClose={() => handleClose()}
@@ -72,9 +54,7 @@ const LanguageSwitcher = () => {
           vertical: "top",
           horizontal: "left",
         }}
-        sx={{
-          mt: 1,
-        }}
+        sx={{ mt: 1 }}
       >
         {["ru", "kz", "en"].map(
           (lang) =>
