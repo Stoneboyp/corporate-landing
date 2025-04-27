@@ -28,7 +28,7 @@ export default function Footer() {
         >
           <IconButton
             component="a"
-            href="https://wa.me/1234"
+            href="https://wa.me/+77772104820"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp"
@@ -37,7 +37,7 @@ export default function Footer() {
           </IconButton>
           <IconButton
             component="a"
-            href="mailto:info@caspianconsulting.kz"
+            href="mailto:info@caspianconsult.kz"
             aria-label="Email"
           >
             <Email color="action" />

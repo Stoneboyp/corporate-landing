@@ -12,6 +12,13 @@ import { useTranslation } from "react-i18next";
 const AboutSection = () => {
   const { t } = useTranslation();
 
+  const bullet = {
+    width: 6,
+    height: 6,
+    bgcolor: "black",
+    borderRadius: "50%",
+    flexShrink: 0,
+  };
   return (
     <Box
       component="section"
@@ -39,14 +46,22 @@ const AboutSection = () => {
           <Typography variant="h6" sx={{ mb: 2 }}>
             {t("about.profile")}
           </Typography>
+          <Typography variant="h6">
+            {t("about.specializations.title")}
+          </Typography>
           <List>
-            <ListItem>
+            <ListItem sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+              <Box sx={bullet} />
               <ListItemText primary={t("about.specializations.civil")} />
             </ListItem>
-            <ListItem>
+
+            <ListItem sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+              <Box sx={bullet} />
               <ListItemText primary={t("about.specializations.tax")} />
             </ListItem>
-            <ListItem>
+
+            <ListItem sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+              <Box sx={bullet} />
               <ListItemText
                 primary={t("about.specializations.anticorruption")}
               />
