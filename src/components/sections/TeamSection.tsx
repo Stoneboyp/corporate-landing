@@ -3,7 +3,13 @@ import { Card, CardContent, Box, Typography, Container } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import PersonIcon from "@mui/icons-material/Person";
 
-const TeamMemberCard = ({ member }: { member: any }) => {
+const TeamMemberCard = ({
+  member,
+  reverse,
+}: {
+  member: any;
+  reverse: boolean;
+}) => {
   const [imgError, setImgError] = useState(false);
 
   return (
@@ -13,19 +19,23 @@ const TeamMemberCard = ({ member }: { member: any }) => {
         boxShadow: 1,
         transition: "box-shadow 0.3s",
         "&:hover": { boxShadow: 4 },
+        display: "flex",
+        flexDirection: reverse ? "row-reverse" : "row", // Шахматный порядок
+        alignItems: "center",
+        gap: 3,
+        mb: 4, // Отступ между карточками
       }}
     >
       <Box
         sx={{
-          width: "100%",
-          height: 500,
+          width: "40%", // Уменьшаем ширину картинки
+          height: 450,
           overflow: "hidden",
           borderTopLeftRadius: 16,
           borderTopRightRadius: 16,
           display: "flex",
-          justifyContent: "center",
+          justifyContent: reverse ? "flex-end" : "flex-start", // Прижимаем картинку слева или справа в зависимости от порядка
           alignItems: "center",
-          bgcolor: "#f5f5f5",
         }}
       >
         {!imgError && member.photo ? (
@@ -35,8 +45,8 @@ const TeamMemberCard = ({ member }: { member: any }) => {
             alt={member.name}
             onError={() => setImgError(true)}
             sx={{
-              width: "auto",
-              height: "110%",
+              width: "100%", // Заполняем доступную ширину
+              height: "100%",
               objectFit: "cover",
               objectPosition: "center",
               transition: "transform 0.4s ease-in-out",
@@ -47,7 +57,9 @@ const TeamMemberCard = ({ member }: { member: any }) => {
           <PersonIcon sx={{ fontSize: 120, color: "grey.500" }} />
         )}
       </Box>
-      <CardContent sx={{ p: 3 }}>
+      <CardContent sx={{ width: "60%" }}>
+        {" "}
+        {/* Увеличиваем ширину текста */}
         <Typography variant="h6" sx={{ mb: 1 }}>
           {member.name}
         </Typography>
@@ -108,14 +120,18 @@ const TeamSection = () => {
             display: "grid",
             gridTemplateColumns: {
               xs: "1fr",
-              sm: "1fr 1fr",
-              lg: "1fr 1fr 1fr",
+              sm: "1fr",
+              lg: "1fr",
             },
             gap: 3,
           }}
         >
-          {Object.entries(members).map(([key, member]) => (
-            <TeamMemberCard key={key} member={member} />
+          {Object.entries(members).map(([key, member], index) => (
+            <TeamMemberCard
+              key={key}
+              member={member}
+              reverse={index % 2 === 1} // Чередуем местами фото и текст
+            />
           ))}
         </Box>
       </Container>

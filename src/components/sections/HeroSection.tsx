@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Paper, Typography } from "@mui/material";
 
 const HeroSection = () => {
   return (
@@ -8,7 +8,6 @@ const HeroSection = () => {
         height: "70vh",
         background: "url('/img/landing/1.jpg') center/cover no-repeat",
         display: "flex",
-        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         textAlign: "center",
@@ -20,12 +19,37 @@ const HeroSection = () => {
         marginRight: "-50vw",
       }}
     >
-      <Typography variant="h2" sx={{ mb: 2 }}>
-        Добро пожаловать
-      </Typography>
-      <Typography variant="h5">
-        Мы предоставляем профессиональные юридические услуги
-      </Typography>
+      <Paper
+        sx={{
+          height: "100%",
+          width: "100%",
+          opacity: 0.6,
+          background: "black",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          p: { xs: 2, sm: 4 }, // Меньше паддинг на мобилках
+          boxSizing: "border-box",
+        }}
+      >
+        <Typography
+          variant="h4"
+          sx={{
+            color: "white",
+            textAlign: "justify",
+            maxWidth: 800,
+            fontSize: { xs: "1rem", sm: "1.5rem", md: "2rem" }, // адаптивный размер текста
+          }}
+        >
+          Caspian Consulting ltd. оказывает юридическую поддержку по вопросам
+          корпоративного и налогового права. Компания предлагает
+          квалифицированную юридическую поддержку для эффективного решения
+          вопросов, связанных с правами собственности, корпоративным
+          управлением, неправомерными налоговыми требованиями, антикоррупционным
+          законодательством и многими другими юридическими аспектами вашего
+          бизнеса.
+        </Typography>
+      </Paper>
     </Box>
   );
 };
