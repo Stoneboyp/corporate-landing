@@ -6,6 +6,7 @@ import ContactPage from "./pages/ContactPage/ContactPage";
 import Footer from "./components/Footer/Footer";
 import FloatingWhatsAppButton from "./components/FloatingContactButton/FloatingContactButton";
 import Header from "./components/Header/Header";
+
 function App() {
   return (
     <Router>
@@ -18,11 +19,14 @@ function App() {
             left: 0,
             width: "100%",
             height: "100%",
-            backgroundImage: `url("/img/landing/1.jpg")`,
+            backgroundImage: `url(${
+              import.meta.env.BASE_URL
+            }img/landing/1.jpg)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            opacity: 0.6,
+            opacity: 0.8,
+            zIndex: -1,
           }}
         />
         <Container
