@@ -19,7 +19,6 @@ const ContactSection = () => {
           {t("contacts.email")}: <span>info@caspianconsult.kz</span>
         </p>
       </section>
-      {/* <Map /> */}
     </Paper>
   );
 };

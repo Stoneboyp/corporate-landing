@@ -1,9 +1,21 @@
 import AboutSection from "@/components/sections/AboutSection";
+import HeroSection from "@/components/sections/HeroSection";
+import { Box } from "@mui/material";
+import { RefObject } from "react";
 
-export default function AboutPage() {
-  return (
-    <main className="min-h-screen bg-white text-black">
-      <AboutSection />
-    </main>
-  );
+interface AboutPageProps {
+  aboutRef: RefObject<HTMLDivElement | null>;
 }
+
+const AboutPage: React.FC<AboutPageProps> = ({ aboutRef }) => {
+  return (
+    <Box>
+      <HeroSection />
+      <div ref={aboutRef}>
+        <AboutSection />
+      </div>
+    </Box>
+  );
+};
+
+export default AboutPage;
