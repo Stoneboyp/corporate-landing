@@ -40,7 +40,8 @@ const HeroSection = () => {
             color: "white",
             textAlign: "justify",
             maxWidth: 950,
-            fontSize: { xs: "1rem", sm: "1.5rem", md: "2rem" },
+            fontSize: { xs: "0.9rem", sm: "1.2rem", md: "1.5rem" },
+            whiteSpace: "pre-line",
           }}
         >
           {t("about.hero")}
