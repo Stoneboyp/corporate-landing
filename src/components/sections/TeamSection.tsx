@@ -3,6 +3,7 @@ import { Card, CardContent, Box, Typography, Container } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import PersonIcon from "@mui/icons-material/Person";
 
+// Компонент карточки участника команды
 const TeamMemberCard = ({
   member,
   reverse,
@@ -12,6 +13,7 @@ const TeamMemberCard = ({
 }) => {
   const [imgError, setImgError] = useState(false);
   const paperBgColor = "#efefef";
+
   return (
     <Card
       sx={{
@@ -21,27 +23,40 @@ const TeamMemberCard = ({
         transition: "box-shadow 0.3s",
         "&:hover": { boxShadow: 4 },
         display: "flex",
-        flexDirection: reverse ? "row-reverse" : "row",
-        alignItems: "center",
-        gap: 3,
+        flexDirection: {
+          xs: "column", // на мобильных — колонка
+          sm: reverse ? "row-reverse" : "row", // на больших — по условию
+        },
+        alignItems: "stretch",
+        gap: 0,
         mb: 4,
       }}
     >
       <Box
         sx={{
-          width: "40%",
-          height: { xs: 300, sm: 350, md: 450 },
+          width: {
+            xs: "100%",
+            sm: "40%",
+          },
+          height: {
+            xs: "auto",
+            sm: 350,
+            md: 450,
+          },
+          maxHeight: 450,
           overflow: "hidden",
-          borderTopLeftRadius: 16,
-          borderTopRightRadius: 16,
+          borderTopLeftRadius: { xs: 16, sm: reverse ? 0 : 16 },
+          borderTopRightRadius: { xs: 16, sm: reverse ? 16 : 0 },
+          borderBottomLeftRadius: { xs: 0, sm: reverse ? 16 : 0 },
+          borderBottomRightRadius: { xs: 0, sm: reverse ? 0 : 16 },
           display: "flex",
-          justifyContent: reverse ? "flex-end" : "flex-start",
+          justifyContent: "center",
           alignItems: "center",
+          flexShrink: 0,
         }}
       >
         {!imgError && member.photo ? (
           <Box
-            bgcolor="#efefef"
             component="img"
             src={member.photo}
             alt={member.name}
@@ -59,7 +74,15 @@ const TeamMemberCard = ({
           <PersonIcon sx={{ fontSize: 120, color: "grey.500" }} />
         )}
       </Box>
-      <CardContent sx={{ width: "60%" }}>
+
+      <CardContent
+        sx={{
+          width: { xs: "100%", sm: "60%" },
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
         <Typography variant="h6" sx={{ mb: 1 }}>
           {member.name}
         </Typography>
@@ -68,10 +91,7 @@ const TeamMemberCard = ({
         </Typography>
         {member.bio?.split("\n\n").map((paragraph: string, idx: number) => (
           <Typography
-            sx={{
-              whiteSpace: "pre-line",
-              textAlign: "justify",
-            }}
+            sx={{ whiteSpace: "pre-line", textAlign: "justify" }}
             key={idx}
             variant="body2"
             paragraph
@@ -84,6 +104,7 @@ const TeamMemberCard = ({
   );
 };
 
+// Основной компонент для отображения всей команды
 const TeamSection = () => {
   const { t, i18n } = useTranslation();
   const [members, setMembers] = useState<{ [key: string]: any }>({});
