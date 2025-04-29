@@ -1,12 +1,11 @@
 import { Paper } from "@mui/material";
-// import Map from "../Map/Map";
 import { useTranslation } from "react-i18next";
 
 const ContactSection = () => {
   const { t } = useTranslation();
 
   return (
-    <Paper elevation={1} sx={{ p: 3, mb: 4 }}>
+    <Paper elevation={1} sx={{ p: 3, mb: 4, bgcolor: "#efefef" }}>
       <section className="contact-section">
         <h1>{t("contacts.title")}</h1>
         <p>

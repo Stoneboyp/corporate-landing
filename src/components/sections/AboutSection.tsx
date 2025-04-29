@@ -13,7 +13,7 @@ const AboutSection = () => {
   const { t } = useTranslation();
 
   // const sectionBgColor = "#f5f5f5";
-  const paperBgColor = "#ffffff";
+  const paperBgColor = "#efefef";
   const textColor = "#545859";
 
   const bullet = {

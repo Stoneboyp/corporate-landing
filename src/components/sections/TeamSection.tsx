@@ -11,10 +11,11 @@ const TeamMemberCard = ({
   reverse: boolean;
 }) => {
   const [imgError, setImgError] = useState(false);
-
+  const paperBgColor = "#efefef";
   return (
     <Card
       sx={{
+        backgroundColor: paperBgColor,
         borderRadius: 4,
         boxShadow: 1,
         transition: "box-shadow 0.3s",
@@ -29,7 +30,7 @@ const TeamMemberCard = ({
       <Box
         sx={{
           width: "40%",
-          height: 450,
+          height: { xs: 300, sm: 350, md: 450 },
           overflow: "hidden",
           borderTopLeftRadius: 16,
           borderTopRightRadius: 16,
@@ -40,6 +41,7 @@ const TeamMemberCard = ({
       >
         {!imgError && member.photo ? (
           <Box
+            bgcolor="#efefef"
             component="img"
             src={member.photo}
             alt={member.name}
@@ -58,7 +60,6 @@ const TeamMemberCard = ({
         )}
       </Box>
       <CardContent sx={{ width: "60%" }}>
-        {" "}
         <Typography variant="h6" sx={{ mb: 1 }}>
           {member.name}
         </Typography>
