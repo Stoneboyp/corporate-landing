@@ -12,7 +12,6 @@ import { useTranslation } from "react-i18next";
 const AboutSection = () => {
   const { t } = useTranslation();
 
-  // const sectionBgColor = "#f5f5f5";
   const paperBgColor = "#efefef";
   const textColor = "#545859";
 
@@ -30,7 +29,6 @@ const AboutSection = () => {
       sx={{
         py: 10,
         borderRadius: "4px",
-        // bgcolor: sectionBgColor,
         color: textColor,
       }}
     >
@@ -59,25 +57,50 @@ const AboutSection = () => {
           elevation={3}
           sx={{ p: 3, mb: 4, bgcolor: paperBgColor, color: textColor }}
         >
-          <Typography variant="h6" sx={{ mb: 2 }}>
+          <Typography variant="h5" sx={{ fontWeight: "medium", mb: 2 }}>
             {t("about.profile")}
           </Typography>
-          <Typography variant="h6">
+          <Typography variant="h5" sx={{ mb: 2 }}>
             {t("about.specializations.title")}
           </Typography>
           <List>
             <ListItem sx={{ display: "flex", alignItems: "center", gap: 1 }}>
               <Box sx={bullet} />
-              <ListItemText primary={t("about.specializations.civil")} />
-            </ListItem>
-            <ListItem sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-              <Box sx={bullet} />
-              <ListItemText primary={t("about.specializations.tax")} />
+              <ListItemText
+                primary={
+                  <>
+                    <strong>
+                      {t("about.specializations.civil").split(":")[0]}
+                    </strong>
+                    :{t("about.specializations.civil").split(":")[1]}
+                  </>
+                }
+              />
             </ListItem>
             <ListItem sx={{ display: "flex", alignItems: "center", gap: 1 }}>
               <Box sx={bullet} />
               <ListItemText
-                primary={t("about.specializations.anticorruption")}
+                primary={
+                  <>
+                    <strong>
+                      {t("about.specializations.tax").split(":")[0]}
+                    </strong>
+                    :{t("about.specializations.tax").split(":")[1]}
+                  </>
+                }
+              />
+            </ListItem>
+            <ListItem sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+              <Box sx={bullet} />
+              <ListItemText
+                primary={
+                  <>
+                    <strong>
+                      {t("about.specializations.anticorruption").split(":")[0]}
+                    </strong>
+                    :{t("about.specializations.anticorruption").split(":")[1]}
+                  </>
+                }
               />
             </ListItem>
           </List>
@@ -88,7 +111,7 @@ const AboutSection = () => {
           sx={{ p: 3, bgcolor: paperBgColor, color: textColor }}
         >
           <Typography variant="h5" sx={{ fontWeight: "medium", mb: 2 }}>
-            {t("about.approachTitle")}
+            <strong>{t("about.approachTitle")}</strong>
           </Typography>
           <Typography variant="body1">{t("about.approach")}</Typography>
         </Paper>
