@@ -16,8 +16,8 @@ const AboutSection = () => {
   const textColor = "#545859";
 
   const bullet = {
-    width: 6,
-    height: 6,
+    width: 8,
+    height: 8,
     bgcolor: "black",
     borderRadius: "50%",
     flexShrink: 0,
@@ -33,18 +33,14 @@ const AboutSection = () => {
       }}
     >
       <Container maxWidth="md" sx={{ mt: 15 }}>
-        <Typography
-          variant="h4"
-          gutterBottom
-          sx={{ fontWeight: "bold", mb: 4 }}
-        >
-          {t("about.title")}
-        </Typography>
-
         <Paper
           elevation={3}
           sx={{ p: 3, mb: 4, bgcolor: paperBgColor, color: textColor }}
         >
+          <Typography variant="h5" sx={{ fontWeight: "medium", mb: 2 }}>
+            <strong>{t("about.title")}</strong>
+          </Typography>
+
           <Typography variant="body1" paragraph>
             {t("about.history")}
           </Typography>
@@ -58,9 +54,12 @@ const AboutSection = () => {
           sx={{ p: 3, mb: 4, bgcolor: paperBgColor, color: textColor }}
         >
           <Typography variant="h5" sx={{ fontWeight: "medium", mb: 2 }}>
+            <strong>{t("about.profileTitle")}</strong>
+          </Typography>
+          <Typography variant="body1" sx={{ fontWeight: "medium", mb: 2 }}>
             {t("about.profile")}
           </Typography>
-          <Typography variant="h5" sx={{ mb: 2 }}>
+          <Typography variant="body1" sx={{ fontWeight: "medium", mb: 2 }}>
             {t("about.specializations.title")}
           </Typography>
           <List>
