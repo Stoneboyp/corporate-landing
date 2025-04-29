@@ -6,7 +6,6 @@ import {
   ListItem,
   ListItemText,
   Paper,
-  Divider,
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
@@ -14,7 +13,7 @@ const AboutSection = () => {
   const { t } = useTranslation();
 
   const paperBgColor = "#efefef";
-  const textColor = "#545859";
+  const textColor = "#black";
 
   const bullet = {
     width: 8,
@@ -42,7 +41,6 @@ const AboutSection = () => {
       }}
     >
       <Container maxWidth="md" sx={{ mt: 15 }}>
-        {/* История компании */}
         <Paper
           elevation={3}
           sx={{ p: 3, mb: 4, bgcolor: paperBgColor, color: textColor }}
@@ -58,7 +56,6 @@ const AboutSection = () => {
           </Typography>
         </Paper>
 
-        {/* Профиль и специализация */}
         <Paper
           elevation={3}
           sx={{ p: 3, mb: 4, bgcolor: paperBgColor, color: textColor }}
