@@ -6,6 +6,7 @@ import {
   ListItem,
   ListItemText,
   Paper,
+  Divider,
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
@@ -23,6 +24,14 @@ const AboutSection = () => {
     flexShrink: 0,
   };
 
+  const sectionTitleStyle = {
+    mb: 4,
+    pb: 2,
+    borderBottom: "2px solid",
+    borderColor: "divider",
+    fontWeight: "bold",
+  };
+
   return (
     <Box
       component="section"
@@ -33,14 +42,14 @@ const AboutSection = () => {
       }}
     >
       <Container maxWidth="md" sx={{ mt: 15 }}>
+        {/* История компании */}
         <Paper
           elevation={3}
           sx={{ p: 3, mb: 4, bgcolor: paperBgColor, color: textColor }}
         >
-          <Typography variant="h5" sx={{ fontWeight: "medium", mb: 2 }}>
-            <strong>{t("about.title")}</strong>
+          <Typography variant="h5" sx={sectionTitleStyle}>
+            {t("about.title")}
           </Typography>
-
           <Typography variant="body1" paragraph>
             {t("about.history")}
           </Typography>
@@ -49,59 +58,43 @@ const AboutSection = () => {
           </Typography>
         </Paper>
 
+        {/* Профиль и специализация */}
         <Paper
           elevation={3}
           sx={{ p: 3, mb: 4, bgcolor: paperBgColor, color: textColor }}
         >
-          <Typography variant="h5" sx={{ fontWeight: "medium", mb: 2 }}>
-            <strong>{t("about.profileTitle")}</strong>
+          <Typography variant="h5" sx={sectionTitleStyle}>
+            {t("about.profileTitle")}
           </Typography>
-          <Typography variant="body1" sx={{ fontWeight: "medium", mb: 2 }}>
+          <Typography variant="body1" sx={{ mb: 2 }}>
             {t("about.profile")}
           </Typography>
+
           <Typography variant="body1" sx={{ fontWeight: "medium", mb: 2 }}>
             {t("about.specializations.title")}
           </Typography>
+
           <List>
-            <ListItem sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-              <Box sx={bullet} />
-              <ListItemText
-                primary={
-                  <>
-                    <strong>
-                      {t("about.specializations.civil").split(":")[0]}
-                    </strong>
-                    :{t("about.specializations.civil").split(":")[1]}
-                  </>
-                }
-              />
-            </ListItem>
-            <ListItem sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-              <Box sx={bullet} />
-              <ListItemText
-                primary={
-                  <>
-                    <strong>
-                      {t("about.specializations.tax").split(":")[0]}
-                    </strong>
-                    :{t("about.specializations.tax").split(":")[1]}
-                  </>
-                }
-              />
-            </ListItem>
-            <ListItem sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-              <Box sx={bullet} />
-              <ListItemText
-                primary={
-                  <>
-                    <strong>
-                      {t("about.specializations.anticorruption").split(":")[0]}
-                    </strong>
-                    :{t("about.specializations.anticorruption").split(":")[1]}
-                  </>
-                }
-              />
-            </ListItem>
+            {["civil", "tax", "anticorruption"].map((key) => {
+              const [title, description] = t(
+                `about.specializations.${key}`
+              ).split(":");
+              return (
+                <ListItem
+                  key={key}
+                  sx={{ display: "flex", alignItems: "flex-start", gap: 1 }}
+                >
+                  <Box sx={bullet} mt="7px" />
+                  <ListItemText
+                    primary={
+                      <>
+                        <strong>{title}</strong>: {description}
+                      </>
+                    }
+                  />
+                </ListItem>
+              );
+            })}
           </List>
         </Paper>
 
@@ -109,8 +102,8 @@ const AboutSection = () => {
           elevation={3}
           sx={{ p: 3, bgcolor: paperBgColor, color: textColor }}
         >
-          <Typography variant="h5" sx={{ fontWeight: "medium", mb: 2 }}>
-            <strong>{t("about.approachTitle")}</strong>
+          <Typography variant="h5" sx={sectionTitleStyle}>
+            {t("about.approachTitle")}
           </Typography>
           <Typography variant="body1">{t("about.approach")}</Typography>
         </Paper>
