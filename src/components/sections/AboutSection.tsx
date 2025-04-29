@@ -12,6 +12,10 @@ import { useTranslation } from "react-i18next";
 const AboutSection = () => {
   const { t } = useTranslation();
 
+  // const sectionBgColor = "#f5f5f5";
+  const paperBgColor = "#ffffff";
+  const textColor = "#545859";
+
   const bullet = {
     width: 6,
     height: 6,
@@ -19,12 +23,18 @@ const AboutSection = () => {
     borderRadius: "50%",
     flexShrink: 0,
   };
+
   return (
     <Box
       component="section"
-      sx={{ py: 10, bgcolor: "rgba(245, 245, 245, 0.5)", borderRadius: "4px" }}
+      sx={{
+        py: 10,
+        borderRadius: "4px",
+        // bgcolor: sectionBgColor,
+        color: textColor,
+      }}
     >
-      <Container maxWidth="md">
+      <Container maxWidth="md" sx={{ mt: 15 }}>
         <Typography
           variant="h4"
           gutterBottom
@@ -33,7 +43,10 @@ const AboutSection = () => {
           {t("about.title")}
         </Typography>
 
-        <Paper elevation={1} sx={{ p: 3, mb: 4 }}>
+        <Paper
+          elevation={3}
+          sx={{ p: 3, mb: 4, bgcolor: paperBgColor, color: textColor }}
+        >
           <Typography variant="body1" paragraph>
             {t("about.history")}
           </Typography>
@@ -42,7 +55,10 @@ const AboutSection = () => {
           </Typography>
         </Paper>
 
-        <Paper elevation={1} sx={{ p: 3, mb: 4, bgcolor: "white" }}>
+        <Paper
+          elevation={3}
+          sx={{ p: 3, mb: 4, bgcolor: paperBgColor, color: textColor }}
+        >
           <Typography variant="h6" sx={{ mb: 2 }}>
             {t("about.profile")}
           </Typography>
@@ -54,12 +70,10 @@ const AboutSection = () => {
               <Box sx={bullet} />
               <ListItemText primary={t("about.specializations.civil")} />
             </ListItem>
-
             <ListItem sx={{ display: "flex", alignItems: "center", gap: 1 }}>
               <Box sx={bullet} />
               <ListItemText primary={t("about.specializations.tax")} />
             </ListItem>
-
             <ListItem sx={{ display: "flex", alignItems: "center", gap: 1 }}>
               <Box sx={bullet} />
               <ListItemText
@@ -69,7 +83,10 @@ const AboutSection = () => {
           </List>
         </Paper>
 
-        <Paper elevation={1} sx={{ p: 3, bgcolor: "grey.100" }}>
+        <Paper
+          elevation={3}
+          sx={{ p: 3, bgcolor: paperBgColor, color: textColor }}
+        >
           <Typography variant="h5" sx={{ fontWeight: "medium", mb: 2 }}>
             {t("about.approachTitle")}
           </Typography>

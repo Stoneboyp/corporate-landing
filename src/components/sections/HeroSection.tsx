@@ -1,6 +1,8 @@
 import { Box, Paper, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const HeroSection = () => {
+  const { t } = useTranslation();
   return (
     <Box
       sx={{
@@ -26,9 +28,9 @@ const HeroSection = () => {
           opacity: 0.6,
           background: "black",
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "flex-end",
           alignItems: "center",
-          p: { xs: 2, sm: 4 }, // Меньше паддинг на мобилках
+          p: { xs: 2, sm: 4 },
           boxSizing: "border-box",
         }}
       >
@@ -37,17 +39,11 @@ const HeroSection = () => {
           sx={{
             color: "white",
             textAlign: "justify",
-            maxWidth: 800,
-            fontSize: { xs: "1rem", sm: "1.5rem", md: "2rem" }, // адаптивный размер текста
+            maxWidth: 950,
+            fontSize: { xs: "1rem", sm: "1.5rem", md: "2rem" },
           }}
         >
-          Caspian Consulting ltd. оказывает юридическую поддержку по вопросам
-          корпоративного и налогового права. Компания предлагает
-          квалифицированную юридическую поддержку для эффективного решения
-          вопросов, связанных с правами собственности, корпоративным
-          управлением, неправомерными налоговыми требованиями, антикоррупционным
-          законодательством и многими другими юридическими аспектами вашего
-          бизнеса.
+          {t("about.hero")}
         </Typography>
       </Paper>
     </Box>

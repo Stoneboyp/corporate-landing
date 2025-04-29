@@ -20,21 +20,21 @@ const TeamMemberCard = ({
         transition: "box-shadow 0.3s",
         "&:hover": { boxShadow: 4 },
         display: "flex",
-        flexDirection: reverse ? "row-reverse" : "row", // Шахматный порядок
+        flexDirection: reverse ? "row-reverse" : "row",
         alignItems: "center",
         gap: 3,
-        mb: 4, // Отступ между карточками
+        mb: 4,
       }}
     >
       <Box
         sx={{
-          width: "40%", // Уменьшаем ширину картинки
+          width: "40%",
           height: 450,
           overflow: "hidden",
           borderTopLeftRadius: 16,
           borderTopRightRadius: 16,
           display: "flex",
-          justifyContent: reverse ? "flex-end" : "flex-start", // Прижимаем картинку слева или справа в зависимости от порядка
+          justifyContent: reverse ? "flex-end" : "flex-start",
           alignItems: "center",
         }}
       >
@@ -45,7 +45,7 @@ const TeamMemberCard = ({
             alt={member.name}
             onError={() => setImgError(true)}
             sx={{
-              width: "100%", // Заполняем доступную ширину
+              width: "100%",
               height: "100%",
               objectFit: "cover",
               objectPosition: "center",
@@ -59,7 +59,6 @@ const TeamMemberCard = ({
       </Box>
       <CardContent sx={{ width: "60%" }}>
         {" "}
-        {/* Увеличиваем ширину текста */}
         <Typography variant="h6" sx={{ mb: 1 }}>
           {member.name}
         </Typography>
@@ -130,7 +129,7 @@ const TeamSection = () => {
             <TeamMemberCard
               key={key}
               member={member}
-              reverse={index % 2 === 1} // Чередуем местами фото и текст
+              reverse={index % 2 === 1}
             />
           ))}
         </Box>
