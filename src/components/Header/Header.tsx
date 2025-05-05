@@ -75,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({ scrollToAbout }) => {
         boxShadow: scrolled ? "0px 2px 4px rgba(0,0,0,0.1)" : "none",
       }}
     >
-      <Toolbar sx={{ justifyContent: "space-between", alignItems: "center" }}>
+      <Toolbar sx={{ justifyContent: "space-around", alignItems: "center" }}>
         <Button component={Link} to="/" sx={{ minWidth: 0 }}>
           <Box component="img" src={logo} alt="Logo" sx={{ height: 70 }} />
         </Button>

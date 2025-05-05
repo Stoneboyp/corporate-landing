@@ -1,36 +1,10 @@
-import {
-  Typography,
-  Box,
-  Container,
-  List,
-  ListItem,
-  ListItemText,
-  Paper,
-} from "@mui/material";
+import { Typography, Box, Container, Button, Collapse } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 
 const AboutSection = forwardRef<HTMLDivElement>((_, ref) => {
   const { t } = useTranslation();
-
-  const paperBgColor = "#efefef";
-  const textColor = "#black";
-
-  const bullet = {
-    width: 8,
-    height: 8,
-    bgcolor: "black",
-    borderRadius: "50%",
-    flexShrink: 0,
-  };
-
-  const sectionTitleStyle = {
-    mb: 4,
-    pb: 2,
-    borderBottom: "2px solid",
-    borderColor: "divider",
-    fontWeight: "bold",
-  };
+  const [expanded, setExpanded] = useState(false);
 
   return (
     <Box
@@ -39,73 +13,88 @@ const AboutSection = forwardRef<HTMLDivElement>((_, ref) => {
       sx={{
         py: 10,
         borderRadius: "4px",
-        color: textColor,
+        color: "#000",
       }}
     >
-      <Container maxWidth="md" sx={{ mt: 15 }}>
-        <Paper
-          elevation={3}
-          sx={{ p: 3, mb: 4, bgcolor: paperBgColor, color: textColor }}
-        >
-          <Typography variant="h5" sx={sectionTitleStyle}>
+      {/* Широкий контейнер */}
+      <Container maxWidth="lg" sx={{ mt: 15 }}>
+        {/* Центрированный заголовок с линией шире текста */}
+        <Box sx={{ textAlign: "center", mb: 6 }}>
+          <Typography
+            variant="h5"
+            sx={{
+              display: "inline-block",
+              fontWeight: "bold",
+              position: "relative",
+              pb: 1,
+              "&::after": {
+                content: '""',
+                position: "absolute",
+                bottom: 0,
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: "160%", // ширина линии относительно текста
+                height: "2px",
+                backgroundColor: "divider",
+              },
+            }}
+          >
             {t("about.title")}
           </Typography>
-          <Typography variant="body1" paragraph>
-            {t("about.history")}
-          </Typography>
-          <Typography variant="body1" paragraph>
-            {t("about.today")}
-          </Typography>
-        </Paper>
+        </Box>
 
-        <Paper
-          elevation={3}
-          sx={{ p: 3, mb: 4, bgcolor: paperBgColor, color: textColor }}
+        {/* Секция с текстом и картинкой */}
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          flexDirection={{ xs: "column", md: "row" }}
+          gap={4}
         >
-          <Typography variant="h5" sx={sectionTitleStyle}>
-            {t("about.profileTitle")}
-          </Typography>
-          <Typography variant="body1" sx={{ mb: 2 }}>
-            {t("about.profile")}
-          </Typography>
+          {/* Текстовая часть */}
+          <Box flex={1}>
+            <Typography variant="h4" paragraph color="#dea057">
+              Добро пожаловать в Caspian Consulting ltd
+            </Typography>
 
-          <Typography variant="body1" sx={{ fontWeight: "medium", mb: 2 }}>
-            {t("about.specializations.title")}
-          </Typography>
+            <Collapse in={expanded} collapsedSize={200}>
+              <Typography
+                variant="body1"
+                paragraph
+                sx={{ whiteSpace: "pre-line" }}
+              >
+                {t("about.fullText")}
+              </Typography>
+            </Collapse>
 
-          <List>
-            {["civil", "tax", "anticorruption"].map((key) => {
-              const [title, description] = t(
-                `about.specializations.${key}`
-              ).split(":");
-              return (
-                <ListItem
-                  key={key}
-                  sx={{ display: "flex", alignItems: "flex-start", gap: 1 }}
-                >
-                  <Box sx={bullet} mt="7px" />
-                  <ListItemText
-                    primary={
-                      <>
-                        <strong>{title}</strong>: {description}
-                      </>
-                    }
-                  />
-                </ListItem>
-              );
-            })}
-          </List>
-        </Paper>
+            <Button
+              onClick={() => setExpanded(!expanded)}
+              sx={{
+                backgroundColor: "#dea057",
+                color: "white",
+                padding: "10px 20px",
+                mt: 5,
+              }}
+            >
+              {expanded ? "Скрыть" : "Узнать больше"}
+            </Button>
+          </Box>
 
-        <Paper
-          elevation={3}
-          sx={{ p: 3, bgcolor: paperBgColor, color: textColor }}
-        >
-          <Typography variant="h5" sx={sectionTitleStyle}>
-            {t("about.approachTitle")}
-          </Typography>
-          <Typography variant="body1">{t("about.approach")}</Typography>
-        </Paper>
+          {/* Блок изображения */}
+          <Box
+            flex={1}
+            sx={{
+              display: "flex",
+              alignItems: "flex-start",
+              justifyContent: "center",
+              width: "100%",
+              height: 350,
+              backgroundColor: "#ccc",
+              borderRadius: "5px",
+            }}
+          >
+            <Typography variant="caption">[Фото]</Typography>
+          </Box>
+        </Box>
       </Container>
     </Box>
   );
