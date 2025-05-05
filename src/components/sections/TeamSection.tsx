@@ -3,7 +3,6 @@ import { Card, CardContent, Box, Typography, Container } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import PersonIcon from "@mui/icons-material/Person";
 
-// Компонент карточки участника команды
 const TeamMemberCard = ({
   member,
   reverse,
@@ -104,7 +103,6 @@ const TeamMemberCard = ({
   );
 };
 
-// Основной компонент для отображения всей команды
 const TeamSection = () => {
   const { t, i18n } = useTranslation();
   const [members, setMembers] = useState<{ [key: string]: any }>({});

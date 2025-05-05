@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import {
   Box,
@@ -14,45 +14,85 @@ import {
   ListItemButton,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import logo from "@/assets/logo.png";
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  scrollToAbout: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ scrollToAbout }) => {
   const { t } = useTranslation();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleDrawer = (open: boolean) => () => setDrawerOpen(open);
+
+  const handleAboutClick = () => {
+    if (location.pathname !== "/") {
+      navigate("/", { replace: false });
+      setTimeout(() => {
+        scrollToAbout();
+      }, 100);
+    } else {
+      scrollToAbout();
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
     { label: t("nav.home"), to: "/" },
     { label: t("nav.services"), to: "/services" },
-    { label: t("nav.about"), to: "/#about" },
+    { label: t("nav.about"), action: handleAboutClick },
     { label: t("nav.team"), to: "/team" },
     { label: t("nav.contacts"), to: "/contact" },
   ];
 
   return (
-    <Box position="static">
-      <Toolbar
-        sx={{
-          justifyContent: "space-around",
-          alignItems: "center",
-        }}
-      >
+    <Box
+      position="fixed"
+      top={0}
+      left={0}
+      right={0}
+      zIndex={10}
+      sx={{
+        transition: "background-color 0.3s ease, box-shadow 0.3s ease",
+        backgroundColor: scrolled ? "#fff" : "transparent",
+        boxShadow: scrolled ? "0px 2px 4px rgba(0,0,0,0.1)" : "none",
+      }}
+    >
+      <Toolbar sx={{ justifyContent: "space-between", alignItems: "center" }}>
         <Button component={Link} to="/" sx={{ minWidth: 0 }}>
           <Box component="img" src={logo} alt="Logo" sx={{ height: 70 }} />
         </Button>
 
         {!isMobile && (
           <Box sx={{ display: "flex", alignItems: "center", gap: 4 }}>
-            {navLinks.map(({ to, label }) => (
-              <Button key={to} component={Link} to={to}>
-                {label}
-              </Button>
-            ))}
+            {navLinks.map(({ to, label, action }) =>
+              to ? (
+                <Button key={to} component={Link} to={to}>
+                  {label}
+                </Button>
+              ) : (
+                <Button key={label} onClick={action}>
+                  {label}
+                </Button>
+              )
+            )}
             <LanguageSwitcher />
           </Box>
         )}
@@ -74,11 +114,17 @@ const Header: React.FC = () => {
                 onKeyDown={toggleDrawer(false)}
               >
                 <List>
-                  {navLinks.map(({ to, label }) => (
-                    <ListItem key={to} disablePadding>
-                      <ListItemButton component={Link} to={to}>
-                        <ListItemText primary={label} />
-                      </ListItemButton>
+                  {navLinks.map(({ to, label, action }) => (
+                    <ListItem key={to || label} disablePadding>
+                      {to ? (
+                        <ListItemButton component={Link} to={to}>
+                          <ListItemText primary={label} />
+                        </ListItemButton>
+                      ) : (
+                        <ListItemButton onClick={action}>
+                          <ListItemText primary={label} />
+                        </ListItemButton>
+                      )}
                     </ListItem>
                   ))}
                   <ListItem>

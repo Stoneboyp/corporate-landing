@@ -8,8 +8,9 @@ import {
   Paper,
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import { forwardRef } from "react";
 
-const AboutSection = () => {
+const AboutSection = forwardRef<HTMLDivElement>((_, ref) => {
   const { t } = useTranslation();
 
   const paperBgColor = "#efefef";
@@ -33,6 +34,7 @@ const AboutSection = () => {
 
   return (
     <Box
+      ref={ref}
       component="section"
       sx={{
         py: 10,
@@ -107,6 +109,6 @@ const AboutSection = () => {
       </Container>
     </Box>
   );
-};
+});
 
 export default AboutSection;

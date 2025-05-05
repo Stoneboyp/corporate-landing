@@ -1,24 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { Box, Paper, Typography } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { useNavigate, useLocation } from "react-router-dom";
 
-interface HeroSectionProps {
-  scrollToAbout: () => void;
-}
-
-const HeroSection: React.FC<HeroSectionProps> = ({ scrollToAbout }) => {
+const HeroSection = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const handleClickMore = () => {
-    if (location.pathname !== "/") {
-      navigate("/", { state: { scrollTo: "about" } });
-    } else {
-      scrollToAbout();
-    }
-  };
 
   return (
     <Box
@@ -66,7 +51,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToAbout }) => {
           {t("about.hero") + " "}
           <Box
             component="span"
-            onClick={handleClickMore}
             sx={{
               display: "inline-flex",
               alignItems: "center",
