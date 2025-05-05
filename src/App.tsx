@@ -13,28 +13,30 @@ import theme from "./theme";
 function App() {
   const aboutRef = useRef<HTMLDivElement>(null);
 
-  const scrollToAbout = () => {
-    aboutRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  // const scrollToAbout = () => {
+  //   aboutRef.current?.scrollIntoView({ behavior: "smooth" });
+  // };
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <Header scrollToAbout={scrollToAbout} />
-        <Box sx={{ position: "relative", minHeight: "100vh" }}>
-          <Container
-            sx={{
-              minHeight: "calc(100vh - 180px)",
-              position: "relative",
-              zIndex: 1,
-            }}
-          >
-            <Routes>
-              <Route path="/" element={<AboutPage aboutRef={aboutRef} />} />
-              <Route path="/team" element={<TeamPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-            </Routes>
-          </Container>
+        <Header />
+        <Box>
+          <Box sx={{ position: "relative", zIndex: 1 }}>
+            <Container
+              sx={{
+                minHeight: "calc(100vh - 180px)",
+                position: "relative",
+              }}
+            >
+              <Routes>
+                <Route path="/" element={<AboutPage aboutRef={aboutRef} />} />
+                <Route path="/team" element={<TeamPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+              </Routes>
+            </Container>
+          </Box>
         </Box>
+
         <Footer />
         <FloatingWhatsAppButton />
       </Router>
