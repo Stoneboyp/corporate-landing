@@ -5,7 +5,6 @@ import {
   useLocation,
 } from "react-router-dom";
 import { Container, Box } from "@mui/material";
-import AboutPage from "./pages/AboutPage/AboutPage";
 import TeamPage from "./pages/TeamPage/TeamPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import Footer from "./components/Footer/Footer";
@@ -36,7 +35,6 @@ function AppContent() {
           >
             <Routes>
               <Route path="/" element={<HomePage aboutRef={aboutRef} />} />
-              <Route path="/about" element={<AboutPage />} />
               <Route path="/team" element={<TeamPage />} />
               <Route path="/contact" element={<ContactPage />} />
             </Routes>
