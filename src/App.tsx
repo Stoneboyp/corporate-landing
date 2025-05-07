@@ -13,14 +13,18 @@ import Header from "./components/Header/Header";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
 import HomePage from "./pages/Home/HomePage";
-import { useRef } from "react";
+import { useCallback, useRef } from "react";
 
 function AppContent() {
   const aboutRef = useRef<HTMLDivElement | null>(null);
 
-  const scrollToAbout = () => {
-    aboutRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  const scrollToAbout = useCallback(() => {
+    if (aboutRef.current) {
+      aboutRef.current.scrollIntoView({ behavior: "smooth" });
+    } else {
+      console.warn("aboutRef not found!"); // Для отладки
+    }
+  }, []);
 
   return (
     <>

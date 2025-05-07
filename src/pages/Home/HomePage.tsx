@@ -10,9 +10,12 @@ import {
 } from "@mui/material";
 import AboutSection from "@/components/sections/AboutSection";
 import ServicesSection from "@/components/sections/ServicesSection";
+import TeamSection from "@/components/sections/TeamSection";
 
 const HomePage = ({
   aboutRef,
+  servicesRef,
+  teamRef,
 }: {
   aboutRef: React.RefObject<HTMLDivElement | null>;
 }) => {
@@ -164,10 +167,17 @@ const HomePage = ({
       </Box>
 
       {/* About Section */}
-      <AboutSection ref={aboutRef} />
-
+      <Box ref={aboutRef} id="about-section">
+        <AboutSection ref={aboutRef} />
+      </Box>
       {/*Services Section */}
-      <ServicesSection />
+      <Box ref={servicesRef} id="services-section">
+        <ServicesSection />
+      </Box>
+      {/* Team Section */}
+      <Box ref={teamRef} id="team-section">
+        <TeamSection />
+      </Box>
     </>
   );
 };

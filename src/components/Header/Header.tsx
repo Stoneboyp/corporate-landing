@@ -39,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({ scrollToAbout }) => {
       navigate("/", { replace: false });
       setTimeout(() => {
         scrollToAbout();
-      }, 100);
+      }, 500);
     } else {
       scrollToAbout();
     }
