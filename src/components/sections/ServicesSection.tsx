@@ -1,4 +1,5 @@
 import { Box, Container, Typography, Grid } from "@mui/material";
+import { forwardRef } from "react";
 
 interface Service {
   title: string;
@@ -87,9 +88,10 @@ for (let i = 0; i < services.length; i += 2) {
   groupedServices.push(services.slice(i, i + 2));
 }
 
-const ServicesSection = () => {
+const ServicesSection = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <Box
+      ref={ref}
       sx={{
         backgroundColor: "#F3F7Fa",
         position: "relative",
@@ -159,6 +161,6 @@ const ServicesSection = () => {
       </Container>
     </Box>
   );
-};
+});
 
 export default ServicesSection;

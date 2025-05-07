@@ -20,30 +20,24 @@ import logo from "@/assets/logo.png";
 
 interface HeaderProps {
   scrollToAbout: () => void;
+  scrollToServices: () => void;
+  scrollToTeam: () => void;
+  scrollToContact: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ scrollToAbout }) => {
+const Header: React.FC<HeaderProps> = ({
+  scrollToAbout,
+  scrollToServices,
+  scrollToTeam,
+  scrollToContact,
+}) => {
   const { t } = useTranslation();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const navigate = useNavigate();
-  const location = useLocation();
-
   const toggleDrawer = (open: boolean) => () => setDrawerOpen(open);
-
-  const handleAboutClick = () => {
-    if (location.pathname !== "/") {
-      navigate("/", { replace: false });
-      setTimeout(() => {
-        scrollToAbout();
-      }, 500);
-    } else {
-      scrollToAbout();
-    }
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,10 +50,10 @@ const Header: React.FC<HeaderProps> = ({ scrollToAbout }) => {
 
   const navLinks = [
     { label: t("nav.home"), to: "/" },
-    { label: t("nav.services"), to: "/services" },
-    { label: t("nav.about"), action: handleAboutClick },
-    { label: t("nav.team"), to: "/team" },
-    { label: t("nav.contacts"), to: "/contact" },
+    { label: t("nav.services"), action: scrollToServices },
+    { label: t("nav.about"), action: scrollToAbout },
+    { label: t("nav.team"), action: scrollToTeam },
+    { label: t("nav.contacts"), action: scrollToContact },
   ];
 
   return (

@@ -12,13 +12,19 @@ import AboutSection from "@/components/sections/AboutSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import TeamSection from "@/components/sections/TeamSection";
 
+interface HomePageProps {
+  aboutRef: React.RefObject<HTMLDivElement | null>;
+  servicesRef: React.RefObject<HTMLDivElement | null>;
+  teamRef: React.RefObject<HTMLDivElement | null>;
+  contactRef: React.RefObject<HTMLDivElement | null>;
+}
+
 const HomePage = ({
   aboutRef,
   servicesRef,
   teamRef,
-}: {
-  aboutRef: React.RefObject<HTMLDivElement | null>;
-}) => {
+  contactRef,
+}: HomePageProps) => {
   const location = useLocation();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
