@@ -12,9 +12,10 @@ import {
   useMediaQuery,
   useTheme,
   ListItemButton,
+  Container,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import logo from "@/assets/logo.png";
 
@@ -34,6 +35,7 @@ const Header: React.FC<HeaderProps> = ({
   const { t } = useTranslation();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isSmallMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -50,8 +52,8 @@ const Header: React.FC<HeaderProps> = ({
 
   const navLinks = [
     { label: t("nav.home"), to: "/" },
-    { label: t("nav.services"), action: scrollToServices },
     { label: t("nav.about"), action: scrollToAbout },
+    { label: t("nav.services"), action: scrollToServices },
     { label: t("nav.team"), action: scrollToTeam },
     { label: t("nav.contacts"), action: scrollToContact },
   ];
@@ -69,67 +71,83 @@ const Header: React.FC<HeaderProps> = ({
         boxShadow: scrolled ? "0px 2px 4px rgba(0,0,0,0.1)" : "none",
       }}
     >
-      <Toolbar sx={{ justifyContent: "space-around", alignItems: "center" }}>
-        <Button component={Link} to="/" sx={{ minWidth: 0 }}>
-          <Box component="img" src={logo} alt="Logo" sx={{ height: 70 }} />
-        </Button>
+      <Container maxWidth="lg" disableGutters>
+        <Toolbar
+          sx={{
+            justifyContent: "space-between",
+            alignItems: "center",
+            px: { xs: 2, sm: 3, md: 4 },
+          }}
+        >
+          <Button component={Link} to="/" sx={{ minWidth: 0 }}>
+            <Box
+              component="img"
+              src={logo}
+              alt="Logo"
+              sx={{
+                height: {
+                  xs: isSmallMobile ? 50 : 60, // 50px для очень маленьких экранов, 60px для средних мобильных
+                  sm: 70, // 70px для планшетов
+                  md: 80, // 80px для десктопов
+                },
+                transition: "height 0.3s ease",
+              }}
+            />
+          </Button>
 
-        {!isMobile && (
-          <Box sx={{ display: "flex", alignItems: "center", gap: 4 }}>
-            {navLinks.map(({ to, label, action }) =>
-              to ? (
-                <Button key={to} component={Link} to={to}>
-                  {label}
-                </Button>
-              ) : (
-                <Button key={label} onClick={action}>
-                  {label}
-                </Button>
-              )
-            )}
-            <LanguageSwitcher />
-          </Box>
-        )}
+          {!isMobile && (
+            <Box sx={{ display: "flex", alignItems: "center", gap: 4 }}>
+              {navLinks.map(({ to, label, action }) =>
+                to ? (
+                  <Button key={to} component={Link} to={to}>
+                    {label}
+                  </Button>
+                ) : (
+                  <Button key={label} onClick={action}>
+                    {label}
+                  </Button>
+                )
+              )}
+              <LanguageSwitcher />
+            </Box>
+          )}
 
-        {isMobile && (
-          <>
+          {isMobile && (
             <IconButton onClick={toggleDrawer(true)}>
               <MenuIcon />
             </IconButton>
-            <Drawer
-              anchor="right"
-              open={drawerOpen}
-              onClose={toggleDrawer(false)}
-            >
-              <Box
-                sx={{ width: 250 }}
-                role="presentation"
-                onClick={toggleDrawer(false)}
-                onKeyDown={toggleDrawer(false)}
-              >
-                <List>
-                  {navLinks.map(({ to, label, action }) => (
-                    <ListItem key={to || label} disablePadding>
-                      {to ? (
-                        <ListItemButton component={Link} to={to}>
-                          <ListItemText primary={label} />
-                        </ListItemButton>
-                      ) : (
-                        <ListItemButton onClick={action}>
-                          <ListItemText primary={label} />
-                        </ListItemButton>
-                      )}
-                    </ListItem>
-                  ))}
-                  <ListItem>
-                    <LanguageSwitcher />
-                  </ListItem>
-                </List>
-              </Box>
-            </Drawer>
-          </>
-        )}
-      </Toolbar>
+          )}
+        </Toolbar>
+      </Container>
+
+      {/* Мобильное меню */}
+      <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
+        <Box
+          sx={{ width: 250 }}
+          role="presentation"
+          onClick={toggleDrawer(false)}
+          onKeyDown={toggleDrawer(false)}
+        >
+          <List>
+            {navLinks.map(({ to, label, action }) => (
+              <ListItem key={to || label} disablePadding>
+                {to ? (
+                  <ListItemButton component={Link} to={to}>
+                    <ListItemText primary={label} />
+                  </ListItemButton>
+                ) : (
+                  <ListItemButton onClick={action}>
+                    <ListItemText primary={label} />
+                  </ListItemButton>
+                )}
+              </ListItem>
+            ))}
+            <ListItem>
+              <LanguageSwitcher />
+            </ListItem>
+          </List>
+        </Box>
+      </Drawer>
     </Box>
   );
 };

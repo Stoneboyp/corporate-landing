@@ -114,7 +114,7 @@ function AppContent() {
           </Container>
         </Box>
       </Box>
-      <Footer />
+      <Footer contactRef={contactRef} />
       <FloatingWhatsAppButton />
     </>
   );

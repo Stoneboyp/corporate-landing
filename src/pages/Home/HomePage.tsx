@@ -11,6 +11,8 @@ import {
 import AboutSection from "@/components/sections/AboutSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import TeamSection from "@/components/sections/TeamSection";
+import StatsBanner from "@/components/StatsBanner/StatsBanner";
+import Competencies from "@/components/Competencies/Competencies";
 
 interface HomePageProps {
   aboutRef: React.RefObject<HTMLDivElement | null>;
@@ -184,6 +186,8 @@ const HomePage = ({
       <Box ref={teamRef} id="team-section">
         <TeamSection />
       </Box>
+      <StatsBanner />
+      <Competencies />
     </>
   );
 };

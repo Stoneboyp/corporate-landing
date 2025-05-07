@@ -1,53 +1,152 @@
 import { Box, Container, IconButton, Typography } from "@mui/material";
 import { Email, WhatsApp } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
+import logo from "@/assets/logo.png";
 
-export default function Footer() {
+interface FooterProps {
+  contactRef?: React.Ref<HTMLDivElement>;
+}
+
+const Footer = ({ contactRef }: FooterProps) => {
   const { t } = useTranslation();
 
   return (
-    <Box component="footer" sx={{ bgcolor: "#f5f5f5", py: 4, mt: "auto" }}>
-      <Container
-        maxWidth="lg"
-        sx={{
-          display: "flex",
-          flexDirection: { xs: "column", sm: "row" },
-          justifyContent: "center",
-          alignItems: "center",
-          gap: 2,
-          position: "relative",
-        }}
-      >
+    <Box
+      component="footer"
+      ref={contactRef}
+      sx={{
+        bgcolor: "#000000",
+        py: { xs: 6, md: 8 },
+        mt: "auto",
+        minHeight: "400px",
+        position: "relative", // Добавляем relative для родительского контейнера
+      }}
+    >
+      <Container maxWidth="lg" disableGutters>
         <Box
           sx={{
-            position: { sm: "absolute" },
-            left: { sm: 0 },
             display: "flex",
-            gap: 1,
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+            flexDirection: { xs: "column", md: "row" },
+            mb: 2,
+            px: { xs: 2, sm: 3, md: 4 },
+            gap: 4,
           }}
         >
-          <IconButton
-            component="a"
-            href="https://wa.me/+77772104820"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WhatsApp"
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: { xs: "center", md: "flex-start" },
+              textAlign: { xs: "center", md: "left" },
+              flex: 1,
+            }}
           >
-            <WhatsApp color="primary" />
-          </IconButton>
-          <IconButton
-            component="a"
-            href="mailto:info@caspianconsult.kz"
-            aria-label="Email"
+            <Box
+              component="img"
+              src={logo}
+              alt="Logo"
+              sx={{ height: 70, mb: 2 }}
+            />
+            <Typography color="white" sx={{ maxWidth: 600 }}>
+              Сделайте первый шаг к решению ваших юридических вопросов —
+              получите консультацию в Caspian Consulting Ltd. Наши юристы
+              выслушают, проконсультируют и предложат оптимальное решение.
+            </Typography>
+          </Box>
+
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: { xs: "center", md: "flex-start" },
+              color: "white",
+            }}
           >
-            <Email color="action" />
-          </IconButton>
+            <Typography variant="h6" gutterBottom>
+              Контакты
+            </Typography>
+            <Typography>г. Астана</Typography>
+            <Typography>+7(777) 210-48-20</Typography>
+            <Typography>info@caspianconsult.kz</Typography>
+          </Box>
         </Box>
 
-        <Typography variant="body2" color="text.secondary" align="center">
-          {t("copyright")}
-        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            justifyContent: "flex-start",
+            alignItems: "center",
+            gap: 2,
+            px: { xs: 2, sm: 3, md: 4 },
+            pt: 2,
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              gap: 2,
+            }}
+          >
+            <IconButton
+              component="a"
+              href="https://wa.me/+77772104820"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              sx={{
+                backgroundColor: "#DEA057",
+                color: "white",
+                borderRadius: "10%",
+                width: 58,
+                height: 58,
+                "&:hover": {
+                  backgroundColor: "#1ebe5d",
+                },
+              }}
+            >
+              <WhatsApp sx={{ fontSize: 28 }} />
+            </IconButton>
+            <IconButton
+              component="a"
+              href="mailto:info@caspianconsult.kz"
+              aria-label="Email"
+              sx={{
+                backgroundColor: "#DEA057",
+                borderRadius: "10%",
+                color: "white",
+                width: 58,
+                height: 58,
+                "&:hover": {
+                  backgroundColor: "#DEA057",
+                },
+              }}
+            >
+              <Email sx={{ fontSize: 28 }} />
+            </IconButton>
+          </Box>
+
+          <Typography
+            variant="body1"
+            color="white"
+            align="center"
+            sx={{
+              borderTop: "1px solid rgba(255,255,255,0.1)",
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              paddingBottom: 1,
+            }}
+          >
+            {t("copyright")}
+          </Typography>
+        </Box>
       </Container>
     </Box>
   );
-}
+};
+
+export default Footer;

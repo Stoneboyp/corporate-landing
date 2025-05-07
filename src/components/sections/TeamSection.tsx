@@ -20,7 +20,7 @@ const TeamSection = ({}: TeamSectionProps) => {
     string,
     any
   >;
-  const membersArray = Object.values(teamMembers).slice(0, 6); // Берем первые 6 членов команды
+  const membersArray = Object.values(teamMembers);
 
   return (
     <Box sx={{ py: 10 }}>
