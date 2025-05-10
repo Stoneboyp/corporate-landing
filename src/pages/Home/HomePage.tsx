@@ -45,10 +45,11 @@ const HomePage = ({
         sx={{
           width: "100vw",
           height: { xs: "100vh", sm: "90vh", md: "80vh" },
-          background: {
-            xs: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/homeHero.jpg') center/cover no-repeat",
-            sm: "url('/img/homeHero.jpg') center/cover no-repeat",
-          },
+          backgroundAttachment: "fixed",
+          backgroundImage: "url('/img/homeHero.jpg')",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
