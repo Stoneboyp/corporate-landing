@@ -122,21 +122,25 @@ const Header: React.FC<HeaderProps> = ({
 
       {/* Мобильное меню */}
       <Drawer anchor="top" open={drawerOpen} onClose={toggleDrawer(false)}>
-        <Box
-          sx={{ width: 250 }}
-          role="presentation"
-          onClick={toggleDrawer(false)}
-          onKeyDown={toggleDrawer(false)}
-        >
+        <Box sx={{ width: 250 }} role="presentation">
           <List>
             {navLinks.map(({ to, label, action }) => (
               <ListItem key={to || label} disablePadding>
                 {to ? (
-                  <ListItemButton component={Link} to={to}>
+                  <ListItemButton
+                    component={Link}
+                    to={to}
+                    onClick={toggleDrawer(false)}
+                  >
                     <ListItemText primary={label} />
                   </ListItemButton>
                 ) : (
-                  <ListItemButton onClick={action}>
+                  <ListItemButton
+                    onClick={() => {
+                      if (action) action();
+                      setDrawerOpen(false);
+                    }}
+                  >
                     <ListItemText primary={label} />
                   </ListItemButton>
                 )}
