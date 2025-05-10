@@ -37,6 +37,7 @@ const TeamSection = ({}: TeamSectionProps) => {
 
         <Grid container spacing={4}>
           {membersArray.map((member, index) => (
+            // @ts-ignore
             <Grid item size={{ xs: 12, sm: 6, md: 4 }} key={index}>
               <Card
                 sx={{
