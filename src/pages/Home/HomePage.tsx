@@ -44,7 +44,7 @@ const HomePage = ({
       <Box
         sx={{
           width: "100vw",
-          height: { xs: "100vh", sm: "90vh", md: "80vh" },
+          height: { xs: "110vh", sm: "110vh", md: "90vh" },
           backgroundAttachment: "fixed",
           backgroundImage: "url('/img/homeHero.jpg')",
           backgroundPosition: "center",

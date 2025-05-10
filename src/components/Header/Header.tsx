@@ -86,9 +86,9 @@ const Header: React.FC<HeaderProps> = ({
               alt="Logo"
               sx={{
                 height: {
-                  xs: isSmallMobile ? 50 : 60, // 50px для очень маленьких экранов, 60px для средних мобильных
-                  sm: 70, // 70px для планшетов
-                  md: 80, // 80px для десктопов
+                  xs: isSmallMobile ? 50 : 60,
+                  sm: 70,
+                  md: 80,
                 },
                 transition: "height 0.3s ease",
               }}
@@ -113,7 +113,7 @@ const Header: React.FC<HeaderProps> = ({
           )}
 
           {isMobile && (
-            <IconButton onClick={toggleDrawer(true)}>
+            <IconButton sx={{ color: "white" }} onClick={toggleDrawer(true)}>
               <MenuIcon />
             </IconButton>
           )}
@@ -121,7 +121,7 @@ const Header: React.FC<HeaderProps> = ({
       </Container>
 
       {/* Мобильное меню */}
-      <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
+      <Drawer anchor="top" open={drawerOpen} onClose={toggleDrawer(false)}>
         <Box
           sx={{ width: 250 }}
           role="presentation"
