@@ -113,7 +113,10 @@ const Header: React.FC<HeaderProps> = ({
           )}
 
           {isMobile && (
-            <IconButton sx={{ color: "white" }} onClick={toggleDrawer(true)}>
+            <IconButton
+              sx={{ color: scrolled ? "black" : "white" }}
+              onClick={toggleDrawer(true)}
+            >
               <MenuIcon />
             </IconButton>
           )}
