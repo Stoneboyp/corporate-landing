@@ -15,6 +15,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
 import HomePage from "./pages/Home/HomePage";
 import { useCallback, useRef } from "react";
+import ScrollToTopButton from "./components/ScrollToTopButton/ScrollToTopButton";
 
 function AppContent() {
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -115,6 +116,7 @@ function AppContent() {
         </Box>
       </Box>
       <Footer contactRef={contactRef} />
+      <ScrollToTopButton />
       <FloatingWhatsAppButton />
     </>
   );
