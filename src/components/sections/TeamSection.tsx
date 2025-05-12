@@ -26,7 +26,25 @@ const TeamSection = ({}: TeamSectionProps) => {
     <Box sx={{ py: 10 }}>
       <Container maxWidth="lg">
         <Box sx={{ textAlign: "center", mb: 6 }}>
-          <Typography variant="h5" sx={{}}>
+          <Typography
+            variant="h5"
+            sx={{
+              display: "inline-block",
+              fontWeight: "bold",
+              position: "relative",
+              pb: 1,
+              "&::after": {
+                content: '""',
+                position: "absolute",
+                bottom: 0,
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: "160%",
+                height: "2px",
+                backgroundColor: "divider",
+              },
+            }}
+          >
             Наша команда
           </Typography>
           <Typography variant="body1" sx={{ mt: 3, maxWidth: 800, mx: "auto" }}>

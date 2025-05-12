@@ -16,9 +16,7 @@ const AboutSection = forwardRef<HTMLDivElement>((_, ref) => {
         color: "#000",
       }}
     >
-      {/* Широкий контейнер */}
       <Container maxWidth="lg" sx={{ mt: 15 }}>
-        {/* Центрированный заголовок с линией шире текста */}
         <Box sx={{ textAlign: "center", mb: 6 }}>
           <Typography
             variant="h5"
@@ -33,7 +31,7 @@ const AboutSection = forwardRef<HTMLDivElement>((_, ref) => {
                 bottom: 0,
                 left: "50%",
                 transform: "translateX(-50%)",
-                width: "160%", // ширина линии относительно текста
+                width: "160%",
                 height: "2px",
                 backgroundColor: "divider",
               },
@@ -43,14 +41,12 @@ const AboutSection = forwardRef<HTMLDivElement>((_, ref) => {
           </Typography>
         </Box>
 
-        {/* Секция с текстом и картинкой */}
         <Box
           display="flex"
           justifyContent="space-between"
           flexDirection={{ xs: "column", md: "row" }}
           gap={4}
         >
-          {/* Текстовая часть */}
           <Box flex={1}>
             <Typography variant="h4" paragraph color="#dea057">
               Добро пожаловать в Caspian Consulting ltd
@@ -79,7 +75,6 @@ const AboutSection = forwardRef<HTMLDivElement>((_, ref) => {
             </Button>
           </Box>
 
-          {/* Блок изображения */}
           <Box
             flex={1}
             sx={{
