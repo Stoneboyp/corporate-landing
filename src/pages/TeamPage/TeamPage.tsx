@@ -1,5 +1,5 @@
 import { Card, Box, CardContent, Typography, Container } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { useTranslation } from "react-i18next";
 import PersonIcon from "@mui/icons-material/Person";
 const TeamMemberCard = ({
@@ -113,10 +113,14 @@ const TeamPage = () => {
     setMembers(teamData);
   }, [t, i18n.language]);
 
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <Box
       component="section"
-      sx={{ py: 10, bgcolor: "white", color: "text.primary" }}
+      sx={{ py: 20, bgcolor: "white", color: "text.primary" }}
     >
       <Container maxWidth="lg">
         <Typography
