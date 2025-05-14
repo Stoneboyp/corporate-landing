@@ -139,6 +139,9 @@ const HomePage = ({
               }}
             >
               <Button
+                onClick={() => {
+                  aboutRef.current?.scrollIntoView({ behavior: "smooth" });
+                }}
                 sx={{
                   border: "1px solid white",
                   padding: { xs: "12px 20px", md: "12px 24px" },
@@ -155,6 +158,9 @@ const HomePage = ({
                 О нас
               </Button>
               <Button
+                onClick={() => {
+                  servicesRef.current?.scrollIntoView({ behavior: "smooth" });
+                }}
                 sx={{
                   border: "1px solid white",
                   padding: { xs: "12px 20px", md: "12px 24px" },
