@@ -25,7 +25,7 @@ const StatsBanner = ({}: StatsBannerProps) => {
         {[
           { label: "Ведущих юристов", value: "6" },
           { label: "Лет кумулятивного опыта", value: "160" },
-          { label: "В  секторах", value: "..." },
+          { label: "В  секторах", value: "8" },
         ].map((item, index) => (
           <Box key={index} sx={{ textAlign: "center" }}>
             <Typography variant="h3" color="primary">

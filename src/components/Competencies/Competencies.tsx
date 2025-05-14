@@ -72,6 +72,29 @@ export const Competencies = () => {
 
   return (
     <Box py={10}>
+      <Box sx={{ textAlign: "center", mb: 6 }}>
+        <Typography
+          variant="h5"
+          sx={{
+            display: "inline-block",
+            fontWeight: "bold",
+            position: "relative",
+            pb: 1,
+            "&::after": {
+              content: '""',
+              position: "absolute",
+              bottom: 0,
+              left: "50%",
+              transform: "translateX(-50%)",
+              width: "160%",
+              height: "2px",
+              backgroundColor: "divider",
+            },
+          }}
+        >
+          Секторы экономики
+        </Typography>
+      </Box>
       {data.map((section, index) => (
         <Box key={index} mb={4}>
           <Typography variant="h6" gutterBottom>
