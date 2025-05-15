@@ -23,7 +23,7 @@ const TeamSection = ({}: TeamSectionProps) => {
   const membersArray = Object.values(teamMembers);
 
   return (
-    <Box sx={{ py: 10 }}>
+    <Box sx={{ py: 13 }}>
       <Container maxWidth="lg">
         <Box sx={{ textAlign: "center", mb: 6 }}>
           <Typography

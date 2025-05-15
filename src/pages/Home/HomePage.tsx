@@ -40,7 +40,6 @@ const HomePage = ({
 
   return (
     <>
-      {/* Hero Section */}
       <Box
         sx={{
           width: "100vw",

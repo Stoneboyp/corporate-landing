@@ -11,7 +11,7 @@ const AboutSection = forwardRef<HTMLDivElement>((_, ref) => {
       ref={ref}
       component="section"
       sx={{
-        py: 10,
+        py: 3,
         borderRadius: "4px",
         color: "#000",
       }}
