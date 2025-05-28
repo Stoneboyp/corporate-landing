@@ -50,6 +50,8 @@ const Header: React.FC<HeaderProps> = ({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const getColor = () => (scrolled ? "black" : "white");
+
   const navLinks = [
     { label: t("nav.home"), to: "/" },
     { label: t("nav.about"), action: scrollToAbout },
@@ -57,6 +59,25 @@ const Header: React.FC<HeaderProps> = ({
     { label: t("nav.team"), action: scrollToTeam },
     { label: t("nav.contacts"), action: scrollToContact },
   ];
+
+  const NavButton = ({
+    to,
+    label,
+    action,
+  }: {
+    to?: string;
+    label: string;
+    action?: () => void;
+  }) =>
+    to ? (
+      <Button sx={{ color: getColor() }} component={Link} to={to}>
+        {label}
+      </Button>
+    ) : (
+      <Button sx={{ color: getColor() }} onClick={action}>
+        {label}
+      </Button>
+    );
 
   return (
     <Box
@@ -97,26 +118,20 @@ const Header: React.FC<HeaderProps> = ({
 
           {!isMobile && (
             <Box sx={{ display: "flex", alignItems: "center", gap: 4 }}>
-              {navLinks.map(({ to, label, action }) =>
-                to ? (
-                  <Button key={to} component={Link} to={to}>
-                    {label}
-                  </Button>
-                ) : (
-                  <Button key={label} onClick={action}>
-                    {label}
-                  </Button>
-                )
-              )}
-              <LanguageSwitcher />
+              {navLinks.map(({ to, label, action }) => (
+                <NavButton
+                  key={to || label}
+                  to={to}
+                  label={label}
+                  action={action}
+                />
+              ))}
+              <LanguageSwitcher scrolled={scrolled} />
             </Box>
           )}
 
           {isMobile && (
-            <IconButton
-              sx={{ color: scrolled ? "black" : "white" }}
-              onClick={toggleDrawer(true)}
-            >
+            <IconButton sx={{ color: getColor() }} onClick={toggleDrawer(true)}>
               <MenuIcon />
             </IconButton>
           )}
@@ -150,7 +165,7 @@ const Header: React.FC<HeaderProps> = ({
               </ListItem>
             ))}
             <ListItem>
-              <LanguageSwitcher />
+              <LanguageSwitcher scrolled={scrolled} />
             </ListItem>
           </List>
         </Box>

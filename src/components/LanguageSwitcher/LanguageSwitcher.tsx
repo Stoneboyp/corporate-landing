@@ -3,7 +3,11 @@ import { useTranslation } from "react-i18next";
 import { Button, Menu, MenuItem } from "@mui/material";
 import { useState } from "react";
 
-const LanguageSwitcher = () => {
+interface LanguageSwitcherProps {
+  scrolled: boolean;
+}
+
+const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ scrolled }) => {
   const { i18n } = useTranslation();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -30,7 +34,7 @@ const LanguageSwitcher = () => {
           fontWeight: "medium",
           textTransform: "uppercase",
           fontSize: 14,
-          color: "text.primary",
+          color: scrolled ? "black" : "white",
           "&:hover": {
             backgroundColor: "transparent",
           },
