@@ -19,7 +19,7 @@ const Footer = ({ contactRef }: FooterProps) => {
         py: { xs: 6, md: 8 },
         mt: "auto",
         minHeight: "400px",
-        position: "relative", // Добавляем relative для родительского контейнера
+        position: "relative",
       }}
     >
       <Container maxWidth="lg" disableGutters>
@@ -50,9 +50,7 @@ const Footer = ({ contactRef }: FooterProps) => {
               sx={{ height: 70, mb: 2 }}
             />
             <Typography color="white" sx={{ maxWidth: 600 }}>
-              Сделайте первый шаг к решению ваших юридических вопросов —
-              получите консультацию в Caspian Consulting Ltd. Наши юристы
-              выслушают, проконсультируют и предложат оптимальное решение.
+              {t("contacts.description")}
             </Typography>
           </Box>
 
@@ -65,9 +63,9 @@ const Footer = ({ contactRef }: FooterProps) => {
             }}
           >
             <Typography variant="h6" gutterBottom>
-              Контакты
+              {t("contacts.title")}
             </Typography>
-            <Typography>г. Астана</Typography>
+            <Typography>{t("contacts.addressDetail")}</Typography>
             <Typography>+7(777) 210-48-20</Typography>
             <Typography>info@caspianconsult.kz</Typography>
           </Box>

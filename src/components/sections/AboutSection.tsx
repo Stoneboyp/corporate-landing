@@ -49,7 +49,7 @@ const AboutSection = forwardRef<HTMLDivElement>((_, ref) => {
         >
           <Box flex={1}>
             <Typography variant="h4" paragraph color="#dea057">
-              Добро пожаловать в Caspian Consulting ltd
+              {t("about.welcome")}
             </Typography>
 
             <Collapse in={expanded} collapsedSize={200}>

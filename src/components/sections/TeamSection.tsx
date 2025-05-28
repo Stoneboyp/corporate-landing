@@ -45,11 +45,10 @@ const TeamSection = ({}: TeamSectionProps) => {
               },
             }}
           >
-            Наша команда
+            {t("team.title")}
           </Typography>
           <Typography variant="body1" sx={{ mt: 3, maxWidth: 800, mx: "auto" }}>
-            Профессиональные юристы с экспертизой в различных областях права.
-            Гарантируем качественное решение ваших юридических вопросов.
+            {t("team.description")}
           </Typography>
         </Box>
 
@@ -111,7 +110,7 @@ const TeamSection = ({}: TeamSectionProps) => {
                       },
                     }}
                   >
-                    Подробнее
+                    {t("team.more")}
                   </Button>
                 </CardActions>
               </Card>
