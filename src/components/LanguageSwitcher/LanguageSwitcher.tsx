@@ -41,7 +41,7 @@ const LanguageSwitcher = () => {
       <Menu
         disableScrollLock
         anchorEl={anchorEl}
-        open={open}
+        open={Boolean(anchorEl)}
         onClose={() => handleClose()}
         MenuListProps={{
           onMouseLeave: () => handleClose(),
