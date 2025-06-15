@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
 import {
   Box,
   Toolbar,
@@ -38,6 +39,8 @@ const Header: React.FC<HeaderProps> = ({
   const isSmallMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isTeamPage = location.pathname === "/team";
 
   const toggleDrawer = (open: boolean) => () => setDrawerOpen(open);
 
@@ -50,7 +53,7 @@ const Header: React.FC<HeaderProps> = ({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const getColor = () => (scrolled ? "black" : "white");
+  const getColor = () => (scrolled || isTeamPage ? "black" : "white");
 
   const navLinks = [
     { label: t("nav.home"), to: "/" },
