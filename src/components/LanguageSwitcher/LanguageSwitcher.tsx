@@ -1,32 +1,64 @@
 // components/LanguageSwitcher.tsx
 import { useTranslation } from "react-i18next";
-import { Button, Menu, MenuItem } from "@mui/material";
-import { useState } from "react";
+import { Button, Menu, MenuItem, Box } from "@mui/material";
+import { useState, useEffect, useRef } from "react";
 
 interface LanguageSwitcherProps {
-  scrolled: boolean;
+  scrolled?: boolean;
 }
 
-const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ scrolled }) => {
+const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
+  scrolled = false,
+}) => {
   const { i18n } = useTranslation();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-
+  const menuRef = useRef<HTMLDivElement>(null);
   const currentLang = i18n.language;
+  const [closing, setClosing] = useState(false);
+
+  useEffect(() => {
+    const handleLanguageChanged = () => {
+      if (anchorEl) {
+        setClosing(true);
+        setTimeout(() => {
+          setAnchorEl(null);
+          setClosing(false);
+        }, 100);
+      }
+    };
+
+    i18n.on("languageChanged", handleLanguageChanged);
+    return () => {
+      i18n.off("languageChanged", handleLanguageChanged);
+    };
+  }, [anchorEl, i18n]);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    if (closing) return;
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = (lang?: string) => {
-    if (lang && lang !== currentLang) {
+  const handleClose = () => {
+    if (!closing) {
+      setAnchorEl(null);
+    }
+  };
+
+  const changeLanguage = (lang: string) => {
+    if (lang !== currentLang) {
       i18n.changeLanguage(lang);
     }
-    setAnchorEl(null);
+  };
+
+  const handleRussianLanguage = () => {
+    changeLanguage("ru");
+    setTimeout(() => {
+      setAnchorEl(null);
+    }, 50);
   };
 
   return (
-    <>
+    <Box ref={menuRef} sx={{ position: "relative", display: "inline-block" }}>
       <Button
         onClick={handleClick}
         sx={{
@@ -39,16 +71,21 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ scrolled }) => {
             backgroundColor: "transparent",
           },
         }}
+        aria-controls="language-menu"
+        aria-haspopup="true"
       >
         {currentLang}
       </Button>
+
       <Menu
-        disableScrollLock
+        id="language-menu"
         anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={() => handleClose()}
+        open={Boolean(anchorEl) && !closing}
+        onClose={handleClose}
+        disableScrollLock
         MenuListProps={{
-          onMouseLeave: () => handleClose(),
+          "aria-labelledby": "language-button",
+          sx: { py: 0 },
         }}
         anchorOrigin={{
           vertical: "bottom",
@@ -58,18 +95,37 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ scrolled }) => {
           vertical: "top",
           horizontal: "left",
         }}
-        sx={{ mt: 1 }}
+        sx={{
+          "& .MuiPaper-root": {
+            mt: 1,
+            boxShadow: 3,
+          },
+        }}
       >
-        {["ru", "kz", "en"].map(
-          (lang) =>
-            lang !== currentLang && (
-              <MenuItem key={lang} onClick={() => handleClose(lang)}>
-                {lang.toUpperCase()}
-              </MenuItem>
-            )
-        )}
+        {["en", "kz", "ru"]
+          .filter((lang) => lang !== currentLang)
+          .map((lang) => (
+            <MenuItem
+              key={lang}
+              onClick={
+                lang === "ru"
+                  ? handleRussianLanguage
+                  : () => changeLanguage(lang)
+              }
+              sx={{
+                textTransform: "uppercase",
+                fontSize: 14,
+                minHeight: "32px",
+                "&:hover": {
+                  backgroundColor: "action.hover",
+                },
+              }}
+            >
+              {lang.toUpperCase()}
+            </MenuItem>
+          ))}
       </Menu>
-    </>
+    </Box>
   );
 };
 
