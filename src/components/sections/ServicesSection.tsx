@@ -6,6 +6,7 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
+import { t } from "i18next";
 import { forwardRef } from "react";
 
 interface Service {
@@ -126,7 +127,7 @@ const ServiceCard = ({ title, description, img }: Service) => {
           sm: `${circleSize.sm + 16}px`,
           md: `${circleSize.md + 16}px`,
         },
-        py: 2,
+        my: 2,
         "&::before": {
           content: '""',
           position: "absolute",
@@ -221,7 +222,9 @@ const ServicesSection = forwardRef<HTMLDivElement>((_, ref) => {
                 backgroundColor: theme.palette.divider,
               },
             }}
-          ></Typography>
+          >
+            {t("services.title")}
+          </Typography>
         </Box>
 
         <Grid container spacing={{ xs: 2, sm: 4 }}>
