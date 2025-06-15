@@ -69,9 +69,12 @@ const AboutSection = forwardRef<HTMLDivElement>((_, ref) => {
                 color: "white",
                 padding: "10px 20px",
                 mt: 5,
+                "&:hover": {
+                  backgroundColor: "#c1914d",
+                },
               }}
             >
-              {expanded ? "Скрыть" : "Узнать больше"}
+              {expanded ? t("about.hide") : t("about.more")}
             </Button>
           </Box>
 
@@ -79,15 +82,31 @@ const AboutSection = forwardRef<HTMLDivElement>((_, ref) => {
             flex={1}
             sx={{
               display: "flex",
-              alignItems: "flex-start",
+              alignItems: "center",
               justifyContent: "center",
               width: "100%",
-              height: 350,
-              backgroundColor: "#ccc",
-              borderRadius: "5px",
+              height: { xs: 250, md: 350 },
+              borderRadius: "8px",
+              overflow: "hidden",
+              boxShadow: 3,
+              position: "relative",
             }}
           >
-            <Typography variant="caption">[Фото]</Typography>
+            <Box
+              component="img"
+              src="/img/about.jpg"
+              alt={t("about.imageAlt")}
+              sx={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "center",
+                transition: "transform 0.3s ease",
+                "&:hover": {
+                  transform: "scale(1.03)",
+                },
+              }}
+            />
           </Box>
         </Box>
       </Container>
