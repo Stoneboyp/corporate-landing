@@ -7,10 +7,9 @@ const StatsBanner = ({}: StatsBannerProps) => {
     <Box
       sx={{
         display: "flex",
-        justifyContent: "space-around",
+        justifyContent: "center",
         alignItems: "center",
         minHeight: 300,
-        px: 4,
         position: "relative",
         left: "50%",
         right: "50%",
@@ -30,28 +29,52 @@ const StatsBanner = ({}: StatsBannerProps) => {
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundColor: "rgba(0, 0, 0, 0.4)",
+          backgroundColor: "rgba(0, 0, 0, 0.6)",
           zIndex: 1,
         },
       }}
     >
-      {[
-        { label: "Ведущих юристов", value: "6" },
-        { label: "Лет кумулятивного опыта", value: "160" },
-        { label: "В секторах", value: "8" },
-      ].map((item, index) => (
-        <Box
-          key={index}
-          sx={{ textAlign: "center", position: "relative", zIndex: 2 }}
-        >
-          <Typography variant="h2" color="primary">
-            {item.value}
-          </Typography>
-          <Typography variant="h5" color="white">
-            {item.label}
-          </Typography>
-        </Box>
-      ))}
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          width: "100%",
+          px: 4,
+        }}
+      >
+        {[
+          { label: "ведущих юристов", value: "6" },
+          { label: "лет кумулятивного опыта", value: "160" },
+          { label: "в секторах", value: "8" },
+        ].map((item, index) => (
+          <Box
+            key={index}
+            sx={{
+              textAlign: "center",
+              position: "relative",
+              zIndex: 2,
+              flex: index === 1 ? "0 0 auto" : 1,
+              mx: index === 1 ? 4 : 0,
+            }}
+          >
+            <Typography
+              variant="h1"
+              color="#dea057"
+              sx={{
+                WebkitTextStroke: "1px black",
+                fontWeight: 600,
+                fontFamily: "Roboto",
+              }}
+            >
+              {item.value}
+            </Typography>
+            <Typography variant="h5" color="white" sx={{ fontWeight: "bold" }}>
+              {item.label}
+            </Typography>
+          </Box>
+        ))}
+      </Box>
     </Box>
   );
 };
