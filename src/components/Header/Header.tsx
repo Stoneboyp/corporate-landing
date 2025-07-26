@@ -114,7 +114,9 @@ const Header: React.FC<HeaderProps> = ({
                   sm: 70,
                   md: 80,
                 },
-                transition: "height 0.3s ease",
+                transition: "all 0.3s ease",
+                transform: "scale(1.4)",
+                transformOrigin: "center",
               }}
             />
           </Button>

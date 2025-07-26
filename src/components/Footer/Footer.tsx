@@ -1,7 +1,14 @@
-import { Box, Container, IconButton, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  IconButton,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { Email, WhatsApp } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logoWhite.png";
 
 interface FooterProps {
   contactRef?: React.Ref<HTMLDivElement>;
@@ -9,7 +16,9 @@ interface FooterProps {
 
 const Footer = ({ contactRef }: FooterProps) => {
   const { t } = useTranslation();
-
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isSmallMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Box
       component="footer"
@@ -47,7 +56,16 @@ const Footer = ({ contactRef }: FooterProps) => {
               component="img"
               src={logo}
               alt="Logo"
-              sx={{ height: 70, mb: 2 }}
+              sx={{
+                height: {
+                  xs: isSmallMobile ? 50 : 60,
+                  sm: 70,
+                  md: 80,
+                },
+                transition: "all 0.3s ease",
+                transform: "scale(1.4)",
+                transformOrigin: "center",
+              }}
             />
             <Typography color="white" sx={{ maxWidth: 600 }}>
               {t("contacts.description")}

@@ -64,7 +64,7 @@ const StatsBanner = ({}: StatsBannerProps) => {
               sx={{
                 WebkitTextStroke: "1px black",
                 fontWeight: 600,
-                fontFamily: "Roboto",
+                fontFamily: "'Rajdhani', sans-serif",
               }}
             >
               {item.value}

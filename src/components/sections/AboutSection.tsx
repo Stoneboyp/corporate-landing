@@ -94,7 +94,7 @@ const AboutSection = forwardRef<HTMLDivElement>((_, ref) => {
           >
             <Box
               component="img"
-              src="/img/about.jpg"
+              src="/img/about.png"
               alt={t("about.imageAlt")}
               sx={{
                 width: "100%",
