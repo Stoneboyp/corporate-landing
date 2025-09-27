@@ -97,37 +97,43 @@
         "name": "Zhan Nurbekov",
         "position": "Director",
         "bio": "Zhan Nurbekov has 29 years of experience in legal support of projects in telecommunications, transport, subsoil use, and environmental protection. His professional background includes legal support for mergers and acquisitions, as well as the implementation of large-scale investment projects.\n\nHe has deep expertise in deal structuring, interaction with government regulators, and ensuring legal stability of business at all stages. He oversees the company’s strategic development and supervises key client projects.",
-        "photo": "img/nyrbekov.jpg"
+        "photo": "img/nyrbekov.jpg",
+        "services": "Civil Law, Subsoil Use Law, Environmental Law"
       },
       "klimkin": {
         "name": "Sergey Klimkin",
         "position": "Ph.D. in Law, Associate Professor",
         "bio": "Sergey Klimkin is an expert in civil and corporate law with over 35 years of legal and academic experience. He specializes in property law, contract and obligations law, as well as mergers and acquisitions of legal entities.\n\nHe is regularly engaged as an expert by government bodies, including the National Security Committee, the Anti-Corruption and Economic Crimes Agency, the Prosecutor's Office, the Constitutional Council, and the Supreme Court.\n\nHe is the author of over 360 academic publications and a regular participant in legal conferences.",
-        "photo": "img/klimkin.jpg"
+        "photo": "img/klimkin.jpg",
+        "services":"Civil Law, Corporate Law"
       },
       "skryabin": {
         "name": "Sergey Skryabin",
         "position": "Ph.D. in Law, Associate Professor",
         "bio": "Sergey Skryabin is a legal expert with over 30 years of practical experience in civil law (including corporate law, property law, obligations and contract law), civil procedure, and arbitration.\n\nHis clients include: NAC Kazatomprom, North Caspian Operating Company N.V. (NCOC), KazRosGas, Bogatyr Komir, and others.\n\nHe has participated in the drafting of legislation, legal acts, articles of association, contracts, and legal review of draft laws.",
-        "photo": "img/skryabin.jpg"
+        "photo": "img/skryabin.jpg",
+        "services":"Civil Law, Property Law, Contract Law"
       },
       "kaldybaev": {
         "name": "Askar Kaldybayev",
         "position": "Ph.D. in Law, LL.M. in German Law",
         "bio": "Askar Kaldybayev is a legal expert with 25 years of practice in mergers and acquisitions, and bankruptcy law.\n\nHe has served as arbitrator in over 60 cases at the International Arbitration Centre of the Astana International Financial Centre (AIFC), the Arbitration Centre at “Atameken”, and the International Chamber of Commerce (ICC), among others.\n\nHe has contributed to the development of several key laws in Kazakhstan, including the Subsoil Use Law, Arbitration Law, Law on Agglomerations, Banking Law, and the Law on LLPs.\n\nHe has authored over 50 publications on legal practice.",
-        "photo": "img/kaldybaev.jpg"
+        "photo": "img/kaldybaev.jpg",
+        "services": "Banking Law, Corporate Law, AIFC Law"
       },
       "kuryachenko": {
         "name": "Dmitry Kuryachenko",
         "position": "Master of Law",
         "bio": "Dmitry Kuryachenko is a lawyer with more than 24 years of experience in protecting and representing interests in economic (including international arbitration in sports disputes under CAS and FIFA regulations), customs, tax, labor, and family disputes. He also handles high-profile criminal cases.\n\nDmitry has participated in the development of several laws.",
-        "photo": "img/kuryachenko.jpg"
+        "photo": "img/kuryachenko.jpg",
+        "services": "Civil, Criminal, Administrative Law; Customs and Labor Legislation"
       },
       "zairov": {
         "name": "Berik Zairov",
         "position": "",
         "bio": "Berik Zairov is an expert with 14 years of experience in taxation and accounting. He has served as a financial director specializing in taxation, including reorganization, dividend payments, and other areas.\n\nHe has participated in government working groups, the Majilis and Senate on amendments to the Tax Code of Kazakhstan, and has led a working group on the reform of special tax regimes at the NPP 'Atameken'.",
-        "photo": "img/zairov.jpg"
+        "photo": "img/zairov.jpg",
+        "services": "Tax and Accounting Legislation"
       }
     }
   },
