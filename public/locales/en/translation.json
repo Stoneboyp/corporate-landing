@@ -6,23 +6,92 @@
     "team": "Our Team",
     "contacts": "Contacts"
   },
+  "hero": {
+    "foundedByExperts": "Founded by leading legal experts",
+    "slogan": "High-quality legal solutions that create advantages",
+    "description": "Caspian Consulting Ltd provids strategic legal solutions to support and protect your business.",
+    "about": "About Us",
+    "services": "Our Services"
+  },
   "about": {
+    "welcome": "Welcome to Caspian Consulting Ltd-Your Trusted Legal Partner",
+    "fullText": "Caspian Consulting Ltd is a reliable legal partner in business support. We specialize in providing high-quality legal services, ensuring strategic support for companies.\n\nSince 2007, our team of highly experienced lawyers has been delivering comprehensive legal services tailored to the needs of companies across multiple sectors. Originally established as Caspian Investment Consulting LLP, we specialized in legal support for subsoil use projects, particularly in the oil and gas sector. Our expertise included everything from negotiating contracts with government authorities to full legal support of operations.\n\nToday we continue our work as a Private Company Caspian Consulting Ltd, registered under the jurisdiction of the Astana International Financial Centre (AIFC). In our new format, we offer an expanded range of legal services, ensuring that we meet the needs of clients operating in a global market with increasingly complex legal requirements.\n\nWe understand that modern business requires legal support that is not only professional but also flexible, practical, and aligned with strategic goals. That is why we build long-term partnerships, providing solutions based on a deep understanding of industry specifics, the regulatory environment, and our clients’ business processes.\n\nWhether your business requires expertise in corporate, contract, tax, labor, or natural resources law; support with transactions, disputes, or complex projects — Caspian Consulting Ltd delivers reliable and effective legal assistance.",
+    "heroMore": "More",
     "title": "About the Company",
+    "more": "Подробнее",
+    "hide": "Скрыть",
     "history": "Our legal practice dates back to 2007 with the establishment of Caspian Investment Consulting LLP, which specialized in providing legal support for subsoil use projects. The core focus of the company was the comprehensive legal support of oil and gas companies — from negotiations with government authorities for contract execution to full legal assistance in operational activities.",
     "today": "Today, we continue our work under the name Caspian Consulting Ltd, a private company registered under the jurisdiction of the Astana International Financial Centre (AIFC).",
     "profileTitle": "Areas of Practice",
     "profile": "Our team brings together lawyers with extensive experience in civil, tax, and criminal law. We offer legal solutions tailored to business interests, emphasizing practical efficiency and strategic sustainability.",
     "specializations": {
-      "title":"Our key areas of specialization include:",
-      "civil": "Civil Law: Legal support of transactions, legal assistance in the field of subsoil use, corporate relations, and protection of property rights;",
-      "tax": "Tax Law: Tax planning, registration and legal support of legal entities within the AIFC jurisdiction, tax dispute resolution;",
-      "anticorruption": "Anti-Corruption Compliance: Legal consulting and risk analysis in accordance with current anti-corruption legislation."
+      "corporateLaw": {
+        "title": "Corporate Law",
+        "description": "We advise on the establishment, management, reorganization, and liquidation of legal entities. We provide legal protection of the interests of shareholders and participants, including the settlement of corporate disputes."
+      },
+      "contractLaw": {
+        "title": "Contract Law",
+        "description": "We draft, review, and support contracts of any complexity, including international agreements. We help minimize risks and protect clients' interests in case of disputes."
+      },
+      "taxLaw": {
+        "title": "Tax Law",
+        "description": "We provide comprehensive legal support in taxation matters, including tax planning, optimization, and representation during tax audits."
+      },
+      "naturalResourcesLaw": {
+        "title": "Natural Resources Law",
+        "description": "We specialize in supporting subsoil use projects, including obtaining licenses, signing contracts, and legal support for companies in the oil and gas industry."
+      },
+      "landLaw": {
+        "title": "Land and Real Estate Law",
+        "description": "We support transactions with land and real estate, including legal due diligence and title registration. We represent clients in land and property disputes."
+      },
+      "laborLaw": {
+        "title": "Labor Law",
+        "description": "We advise employers and employees on employment agreements, dismissals, labor disputes, and compliance with labor legislation."
+      },
+      "administrativeLaw": {
+        "title": "Administrative Law",
+        "description": "We assist in appealing the actions and decisions of government authorities, including inspections. We represent clients in administrative disputes and state interactions."
+      },
+      "financialLaw": {
+        "title": "Financial and Banking Law",
+        "description": "We advise on financial market regulations, banking activities, and attracting investments. We support securities transactions and consult on AIFC matters."
+      },
+      "disputeResolution": {
+        "title": "Litigation and Arbitration",
+        "description": "We represent clients in courts of all instances in Kazakhstan. We have experience in international arbitration, including AIFC, ICC, LCIA, and other institutions."
+      },
+      "itLaw": {
+        "title": "Intellectual Property and IT Law",
+        "description": "We protect rights to trademarks, inventions, copyrights, and related rights. We advise on digital law, personal data protection, and IT contracts."
+      },
+      "competitionLaw": {
+        "title": "Competition Law",
+        "description": "We support clients in dealing with antimonopoly authorities and approving transactions. We provide legal defense against unfair competition and anticompetitive practices."
+      },
+      "aifcLaw": {
+        "title": "AIFC Law",
+        "description": "We provide legal support for transactions and projects within the Astana International Financial Centre jurisdiction, working under AIFC Common Law and international standards."
+      },
+      "infrastructureLaw": {
+        "title": "PPP and Infrastructure Projects",
+        "description": "We advise on public-private partnership agreements and support infrastructure projects at all stages — from concept to operation."
+      },
+      "esgLaw": {
+        "title": "ESG and Sustainability",
+        "description": "We support the integration of ESG practices into corporate policies and reporting. We assist projects aimed at sustainable development and compliance with international standards."
+      },
+      "complianceLaw": {
+        "title": "Compliance and Anti-Corruption",
+        "description": "We conduct legal reviews for compliance with anti-corruption laws. We develop and implement corporate compliance programs and internal control mechanisms."
+      }
     },
     "approachTitle": "Our Approach",
     "approach": "We provide customized legal solutions that ensure the protection of clients' rights and interests while achieving business objectives. Our priorities are confidentiality, efficiency, and strategic partnership with every client."
   },
   "team": {
     "title": "Our Team",
+    "description": "Professional lawyers with expertise in various fields of law. We guarantee high-quality solutions to your legal matters.",
     "members": {
       "nyrbekov": {
         "name": "Zhan Nurbekov",
@@ -62,10 +131,74 @@
       }
     }
   },
+  "competencies": {
+    "title": "Economic Sectors",
+    "sections": [
+      {
+        "title": "Energy and Subsoil Use",
+        "items": [
+          "Legal support of projects in the oil and gas, mining, and energy sectors, including renewable energy (RES)",
+          "Licensing, environmental regulation, and interaction with government authorities",
+          "Drafting and implementation of subsoil use agreements"
+        ]
+      },
+      {
+        "title": "Financial Sector and Investments",
+        "items": [
+          "Regulation of financial markets and banking activities",
+          "Legal expertise in ESG and sustainable financial instruments (green bonds, support of projects on carbon neutrality, climate finance, emission offset mechanisms, sustainable investments, and decarbonization)",
+          "Consulting on AIFC regulations (AIFC Law), investment transactions, and financial compliance"
+        ]
+      },
+      {
+        "title": "Construction and Real Estate",
+        "items": [
+          "Legal support of residential, commercial, and infrastructure projects",
+          "Land and property regulations"
+        ]
+      },
+      {
+        "title": "Agro-Industrial Complex and Food Security",
+        "items": [
+          "Legal support for agro-investments, land issues, and benefits"
+        ]
+      },
+      {
+        "title": "Digital Technologies and Telecommunications",
+        "items": [
+          "Legal support of IT projects, startups, and digital platforms",
+          "Consulting on personal data protection, intellectual property, and cybersecurity",
+          "Legal aspects of digital transformation in energy, logistics, agro-industrial complex, and other sectors"
+        ]
+      },
+      {
+        "title": "Transport and Logistics",
+        "items": [
+          "Domestic and international transport and logistics agreements"
+        ]
+      },
+      {
+        "title": "Public Sector and PPP",
+        "items": [
+          "Development and support of public-private partnership (PPP) projects, including in the “green” sector",
+          "Consulting on regulatory issues, subsidies, and public procurement",
+          "Legal risk assessment and anti-corruption compliance"
+        ]
+      },
+      {
+        "title": "Industry and Manufacturing",
+        "items": [
+          "Legal support for industrial enterprises, including modernization and greening of production",
+          "Labor protection, technical regulation, waste and emissions management"
+        ]
+      }
+    ]
+  },
   "contacts": {
-    "title": "Contact Us",
+    "description": "Take the first step in resolving your legal challenges. Our team will listen, advise, and provide the optimal solution.",
+    "title": "Contacts",
     "address": "Address:",
-    "addressDetail": "Astana, Esil district, Alikhan Bukeikhan St. 6 - 238",
+    "addressDetail": "Astana, Yesil District, 6 Alikhan Bokeikhan St., office 238",
     "phone": "Phone",
     "email": "Email"
   },

@@ -13,6 +13,7 @@ import ServicesSection from "@/components/sections/ServicesSection";
 import TeamSection from "@/components/sections/TeamSection";
 import StatsBanner from "@/components/StatsBanner/StatsBanner";
 import Competencies from "@/components/Competencies/Competencies";
+import { useTranslation } from "react-i18next";
 
 interface HomePageProps {
   aboutRef: React.RefObject<HTMLDivElement | null>;
@@ -31,7 +32,7 @@ const HomePage = ({
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
-
+  const { t } = useTranslation();
   useEffect(() => {
     if (location.pathname === "/") {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -99,7 +100,7 @@ const HomePage = ({
                   },
                 }}
               >
-                Основана признанными экспертами в области права
+                {t("hero.foundedByExperts")}
               </Typography>
 
               <Typography
@@ -118,7 +119,7 @@ const HomePage = ({
                 }}
                 gutterBottom
               >
-                Качественные юридические решения, создающие преимущества
+                {t("hero.slogan")}
               </Typography>
 
               <Typography
@@ -133,8 +134,7 @@ const HomePage = ({
                   opacity: 0.9,
                 }}
               >
-                Caspian Consulting Ltd предоставляет юридические решения для
-                роста и защиты Вашего бизнеса.
+                {t("hero.description")}
               </Typography>
             </Box>
 
@@ -164,7 +164,7 @@ const HomePage = ({
                   },
                 }}
               >
-                О нас
+                {t("hero.about")}
               </Button>
               <Button
                 onClick={() => {
@@ -183,7 +183,7 @@ const HomePage = ({
                   },
                 }}
               >
-                Наши услуги
+                {t("hero.services")}
               </Button>
             </Box>
           </Box>

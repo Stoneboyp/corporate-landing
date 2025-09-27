@@ -8,107 +8,33 @@ import {
 } from "@mui/material";
 import { t } from "i18next";
 import { forwardRef } from "react";
+import { useTranslation } from "react-i18next";
 
 interface Service {
-  title: string;
-  description: string;
+  key: string;
   img: string;
 }
 
 const services: Service[] = [
-  {
-    title: "Корпоративное право",
-    description:
-      "Консультируем по вопросам создания, управления, реорганизации и ликвидации юридических лиц. Обеспечиваем правовую защиту интересов участников и акционеров, включая урегулирование корпоративных споров.",
-    img: "img/services/corporate.jpeg",
-  },
-  {
-    title: "Договорное право",
-    description:
-      "Разрабатываем, анализируем и сопровождаем договоры любой сложности, включая международные контракты. Помогаем минимизировать риски и защищаем интересы клиентов при возникновении споров.",
-    img: "img/services/contract.jpg",
-  },
-  {
-    title: "Налоговое право",
-    description:
-      "Предоставляем комплексные консультации по налогообложению и налоговому планированию. Сопровождаем процедуры обжалования актов налоговых органов.",
-    img: "img/services/tax.jpg",
-  },
-  {
-    title: "Недропользование и природоресурсное право",
-    description:
-      "Оказываем правовую поддержку недропользователям на всех этапах — от получения лицензий до операционной деятельности. Имеем значительный опыт в сопровождении нефтегазовых и горнорудных проектов.",
-    img: "img/services/natural.jpg",
-  },
-  {
-    title: "Земельное право и недвижимость",
-    description:
-      "Сопровождаем сделки с землей и объектами недвижимости, включая юридическую экспертизу и оформление прав. Представляем интересы клиентов в земельных и имущественных спорах.",
-    img: "img/services/land.png",
-  },
-  {
-    title: "Трудовое право",
-    description:
-      "Разрабатываем трудовые договоры, коллективные соглашения и внутренние нормативные акты. Консультируем по вопросам увольнения, споров с работниками и соблюдения трудового законодательства.",
-    img: "img/services/job.jpeg",
-  },
-  {
-    title: "Административное право",
-    description:
-      "Сопровождаем обжалование действий и решений государственных органов, включая сопровождение проверок. Представляем клиентов в административных спорах и взаимодействуем с госорганами.",
-    img: "img/services/administration.jpeg",
-  },
-  {
-    title: "Финансовое и банковское право",
-    description:
-      "Консультируем по вопросам регулирования финансовых рынков, банковской деятельности и привлечения инвестиций. Сопровождаем сделки с ценными бумагами и консультируем по вопросам AIFC.",
-    img: "img/services/financial.jpg",
-  },
-  {
-    title: "Судебное и арбитражное представительство",
-    description:
-      "Представляем интересы клиентов в судах всех инстанций Республики Казахстан. Имеем опыт в международном арбитраже, включая процедуры при AIFC, ICC, LCIA и других институтах.",
-    img: "img/services/arbitration.png",
-  },
-  {
-    title: "Интеллектуальная собственность и IT-право",
-    description:
-      "Защищаем права на товарные знаки, изобретения, авторские и смежные права. Консультируем по вопросам цифрового права, обработки персональных данных и ИТ-контрактов.",
-    img: "img/services/it.jpeg",
-  },
-  {
-    title: "Конкурентное право",
-    description:
-      "Сопровождаем клиентов при взаимодействии с антимонопольными органами и согласовании сделок. Осуществляем правовую защиту от недобросовестной конкуренции и антиконкурентных практик.",
-    img: "img/services/competitive.jpg",
-  },
-  {
-    title: "Право МФЦА (AIFC Law)",
-    description:
-      "Предоставляем юридическое сопровождение сделок и проектов в юрисдикции Международного финансового центра «Астана». Работаем в рамках AIFC Common Law с учетом международных стандартов регулирования.",
-    img: "img/services/mfca.webp",
-  },
-  {
-    title: "ГЧП и инфраструктурные проекты",
-    description:
-      "Консультируем по заключению и реализации соглашений о государственно-частном партнерстве. Сопровождаем инфраструктурные проекты на всех стадиях — от концепции до эксплуатации.",
-    img: "img/services/infrastructure.jpg",
-  },
-  {
-    title: "ESG и устойчивое развитие",
-    description:
-      "Оказываем правовую поддержку в интеграции ESG-подходов в корпоративную политику и отчетность. Сопровождаем проекты, направленные на устойчивое развитие и соблюдение международных стандартов.",
-    img: "img/services/esg.jpg",
-  },
-  {
-    title: "Комплаенс и антикоррупционная экспертиза",
-    description:
-      "Проводим правовую экспертизу на предмет соответствия требованиям антикоррупционного законодательства. Разрабатываем и внедряем корпоративные комплаенс-программы и механизмы внутреннего контроля.",
-    img: "img/services/complaens.jpg",
-  },
+  { key: "corporateLaw", img: "img/services/corporate.jpeg" },
+  { key: "contractLaw", img: "img/services/contract.jpg" },
+  { key: "taxLaw", img: "img/services/tax.jpg" },
+  { key: "naturalResourcesLaw", img: "img/services/natural.jpg" },
+  { key: "landLaw", img: "img/services/land.png" },
+  { key: "laborLaw", img: "img/services/job.jpeg" },
+  { key: "administrativeLaw", img: "img/services/administration.jpeg" },
+  { key: "financialLaw", img: "img/services/financial.jpg" },
+  { key: "disputeResolution", img: "img/services/arbitration.png" },
+  { key: "itLaw", img: "img/services/it.jpeg" },
+  { key: "competitionLaw", img: "img/services/competitive.jpg" },
+  { key: "aifcLaw", img: "img/services/mfca.webp" },
+  { key: "infrastructureLaw", img: "img/services/infrastructure.jpg" },
+  { key: "esgLaw", img: "img/services/esg.jpg" },
+  { key: "complianceLaw", img: "img/services/complaens.jpg" },
 ];
 
-const ServiceCard = ({ title, description, img }: Service) => {
+const ServiceCard = ({ service }: { service: Service }) => {
+  const { t } = useTranslation();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -128,6 +54,7 @@ const ServiceCard = ({ title, description, img }: Service) => {
           md: `${circleSize.md + 16}px`,
         },
         my: 2,
+        p: 2,
         "&::before": {
           content: '""',
           position: "absolute",
@@ -144,13 +71,10 @@ const ServiceCard = ({ title, description, img }: Service) => {
             md: `${circleSize.md}px`,
           },
           backgroundColor: theme.palette.background.paper,
-          backgroundImage: `url(${img})`,
+          backgroundImage: `url(${service.img})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
           borderRadius: "50%",
-          zIndex: 0,
-          flexShrink: 0,
           boxShadow: theme.shadows[1],
           [theme.breakpoints.down("sm")]: {
             top: "50%",
@@ -165,14 +89,14 @@ const ServiceCard = ({ title, description, img }: Service) => {
         color="#dea057"
         sx={{ position: "relative", zIndex: 1 }}
       >
-        {title}
+        {t(`about.specializations.${service.key}.title`)}
       </Typography>
       <Typography
         variant="body2"
         color="text.secondary"
         sx={{ position: "relative", zIndex: 1 }}
       >
-        {description}
+        {t(`about.specializations.${service.key}.description`)}
       </Typography>
     </Box>
   );
@@ -223,15 +147,14 @@ const ServicesSection = forwardRef<HTMLDivElement>((_, ref) => {
               },
             }}
           >
-            {t("services.title")}
+            {t("about.services.title")}
           </Typography>
         </Box>
 
         <Grid container spacing={{ xs: 2, sm: 4 }}>
           {services.map((service, index) => (
-            // @ts-ignore
-            <Grid item size={{ xs: 12, sm: 6 }} key={index}>
-              <ServiceCard {...service} />
+            <Grid size={{ xs: 12, sm: 6 }} key={index}>
+              <ServiceCard service={service} />
             </Grid>
           ))}
         </Grid>
@@ -239,5 +162,7 @@ const ServicesSection = forwardRef<HTMLDivElement>((_, ref) => {
     </Box>
   );
 });
+
+ServicesSection.displayName = "ServicesSection";
 
 export default ServicesSection;
