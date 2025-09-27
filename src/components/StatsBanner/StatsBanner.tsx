@@ -1,8 +1,10 @@
 import { Box, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 interface StatsBannerProps {}
 
 const StatsBanner = ({}: StatsBannerProps) => {
+  const { t } = useTranslation();
   return (
     <Box
       sx={{
@@ -44,9 +46,9 @@ const StatsBanner = ({}: StatsBannerProps) => {
         }}
       >
         {[
-          { label: "ведущих юристов", value: "6" },
-          { label: "лет кумулятивного опыта", value: "160" },
-          { label: "в секторах", value: "8" },
+          { label: t("stats.lawyers"), value: "6" },
+          { label: t("stats.experience"), value: "160" },
+          { label: t("stats.sectors"), value: "8" },
         ].map((item, index) => (
           <Box
             key={index}

@@ -105,14 +105,14 @@
         "position": "Ph.D. in Law, Associate Professor",
         "bio": "Sergey Klimkin is an expert in civil and corporate law with over 35 years of legal and academic experience. He specializes in property law, contract and obligations law, as well as mergers and acquisitions of legal entities.\n\nHe is regularly engaged as an expert by government bodies, including the National Security Committee, the Anti-Corruption and Economic Crimes Agency, the Prosecutor's Office, the Constitutional Council, and the Supreme Court.\n\nHe is the author of over 360 academic publications and a regular participant in legal conferences.",
         "photo": "img/klimkin.jpg",
-        "services":"Civil Law, Corporate Law"
+        "services": "Civil Law, Corporate Law"
       },
       "skryabin": {
         "name": "Sergey Skryabin",
         "position": "Ph.D. in Law, Associate Professor",
         "bio": "Sergey Skryabin is a legal expert with over 30 years of practical experience in civil law (including corporate law, property law, obligations and contract law), civil procedure, and arbitration.\n\nHis clients include: NAC Kazatomprom, North Caspian Operating Company N.V. (NCOC), KazRosGas, Bogatyr Komir, and others.\n\nHe has participated in the drafting of legislation, legal acts, articles of association, contracts, and legal review of draft laws.",
         "photo": "img/skryabin.jpg",
-        "services":"Civil Law, Property Law, Contract Law"
+        "services": "Civil Law, Property Law, Contract Law"
       },
       "kaldybaev": {
         "name": "Askar Kaldybayev",
@@ -136,6 +136,11 @@
         "services": "Tax and Accounting Legislation"
       }
     }
+  },
+  "stats": {
+    "lawyers": "Leading lawyers",
+    "experience": "160 years of cumulative experience",
+    "sectors": "Across 8 sectors"
   },
   "competencies": {
     "title": "Economic Sectors",
