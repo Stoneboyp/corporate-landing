@@ -94,7 +94,7 @@ const ServiceCard = ({ service }: { service: Service }) => {
       <Typography
         variant="body2"
         color="text.secondary"
-        sx={{ position: "relative", zIndex: 1 }}
+        sx={{ position: "relative", zIndex: 1, textAlign: "justify" }}
       >
         {t(`about.specializations.${service.key}.description`)}
       </Typography>

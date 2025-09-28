@@ -56,7 +56,7 @@ const AboutSection = forwardRef<HTMLDivElement>((_, ref) => {
               <Typography
                 variant="body1"
                 paragraph
-                sx={{ whiteSpace: "pre-line" }}
+                sx={{ whiteSpace: "pre-line", textAlign: "justify" }}
               >
                 {t("about.fullText")}
               </Typography>

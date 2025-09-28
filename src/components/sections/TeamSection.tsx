@@ -47,7 +47,10 @@ const TeamSection = ({}: TeamSectionProps) => {
           >
             {t("team.title")}
           </Typography>
-          <Typography variant="body1" sx={{ mt: 3, maxWidth: 800, mx: "auto" }}>
+          <Typography
+            variant="body1"
+            sx={{ mt: 3, maxWidth: 800, mx: "auto", textAlign: "justify" }}
+          >
             {t("team.description")}
           </Typography>
         </Box>
